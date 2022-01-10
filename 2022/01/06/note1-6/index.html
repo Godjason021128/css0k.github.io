@@ -1,235 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+extends includes/layout.pug
 
-  
-  <title>note1-6 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="搭博客并搞原理或在命令行上创建一个新的存储库&#96;&#96;echo “#css0k.github.io” &gt;&gt; README.md  git init  git add README.md  git commit -m “first commit”  git branch -M main  git remote add origin https:&#x2F;&#x2F;github.com&#x2F;Godjason0211">
-<meta property="og:type" content="article">
-<meta property="og:title" content="note1-6">
-<meta property="og:url" content="https://css0k.github.io/2022/01/06/note1-6/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="搭博客并搞原理或在命令行上创建一个新的存储库&#96;&#96;echo “#css0k.github.io” &gt;&gt; README.md  git init  git add README.md  git commit -m “first commit”  git branch -M main  git remote add origin https:&#x2F;&#x2F;github.com&#x2F;Godjason0211">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-01-06T14:19:07.000Z">
-<meta property="article:modified_time" content="2022-01-07T04:19:31.081Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+block content
+  #post
+    if top_img === false
+      include includes/header/post-info.pug
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+    article#article-container.post-content!=page.content
+    include includes/post/post-copyright.pug
+    .tag_share
+      if (theme.post_meta.post.tags)
+        .post-meta__tag-list
+          each item, index in page.tags.data
+            a(href=url_for(item.path)).post-meta__tags #[=item.name]
+      include includes/third-party/share/index.pug
+        
+    if theme.reward.enable
+      !=partial('includes/post/reward', {}, {cache: true})
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+    //- ad
+    if theme.ad && theme.ad.post
+      .ads-wrap!=theme.ad.post
+
+    if theme.post_pagination
+      include includes/pagination.pug
+    if theme.related_post && theme.related_post.enable
+      != related_posts(page,site.posts)
+
+    if page.comments !== false && theme.comments && theme.comments.use
+      - var commentsJsLoad = true
+      !=partial('includes/third-party/comments/index', {}, {cache: true})
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://css0k.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-note1-6" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/01/06/note1-6/" class="article-date">
-  <time datetime="2022-01-06T14:19:07.000Z" itemprop="datePublished">2022-01-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      note1-6
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="搭博客并搞原理"><a href="#搭博客并搞原理" class="headerlink" title="搭博客并搞原理"></a>搭博客并搞原理</h2><h4 id="或在命令行上创建一个新的存储库"><a href="#或在命令行上创建一个新的存储库" class="headerlink" title="或在命令行上创建一个新的存储库"></a>或在命令行上创建一个新的存储库</h4><p>``echo “#css0k.github.io” &gt;&gt; README.md<code>  </code>git init<code>  </code>git add README.md<code>  </code>git commit -m “first commit”<code>  </code>git branch -M main<code>  </code>git remote add origin <a target="_blank" rel="noopener" href="https://github.com/Godjason021128/css0k">https://github.com/Godjason021128/css0k</a>. github.io.git<code>  git push -u origin main</code></p>
-<h4 id="生成ssh添加到GitHub"><a href="#生成ssh添加到GitHub" class="headerlink" title="生成ssh添加到GitHub"></a>生成ssh添加到GitHub</h4><ul>
-<li>ssh，简单来讲，就是一个秘钥，其中，id_rsa是你这台电脑的私人秘钥，不能给别人看的，id_rsa.pub是公共秘钥，可以随便给别人看。把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。</li>
-</ul>
-<h4 id="hexo部署到GitHub"><a href="#hexo部署到GitHub" class="headerlink" title="hexo部署到GitHub"></a>hexo部署到GitHub</h4><p>更改配置文件 <code>_config.yml</code></p>
-<p>安装deploy-git (部署的命令)</p>
-<blockquote>
-<p><code>hexo clean</code>                              清除了你之前生成的东西<br><code>hexo generate  (hexo g)</code>       生成静态文章<br><code>hexo deploy (hexo d)</code>            部署文章</p>
-</blockquote>
-<p><code>hexo new 文件名</code></p>
-<p>每次写完重复上述命令进行github部署</p>
-<p>GitHub以网页形式查看.html:</p>
-<p>​        在目录前加 <code>http://htmlpreview.github.io/?</code></p>
-<h2 id="zip伪加密"><a href="#zip伪加密" class="headerlink" title="zip伪加密"></a>zip伪加密</h2><p>一个 ZIP 文件由三个部分组成：<br>　　压缩源文件数据区+压缩源文件目录区+压缩源文件目录结束标志</p>
-<h4 id="a-压缩源文件数据区："><a href="#a-压缩源文件数据区：" class="headerlink" title="a.压缩源文件数据区："></a>a.压缩源文件数据区：</h4><p>50 4B 03 04：这是头文件标记（0x04034b50）<br>14 00：解压文件所需 pkware 版本<br>00 00：全局方式位标记（有无加密，奇数加密，偶数无加密）<br>08 00：压缩方式<br>5A 7E：最后修改文件时间<br>F7 46：最后修改文件日期<br>16 B5 80 14：CRC-32校验（1480B516）<br>19 00 00 00：压缩后尺寸（25）<br>17 00 00 00：未压缩尺寸（23）<br>07 00：文件名长度<br>00 00：扩展记录长度<br>6B65792E7478740BCECC750E71ABCE48CDC9C95728CECC2DC849AD284DAD0500</p>
-<h4 id="b-压缩源文件目录区"><a href="#b-压缩源文件目录区" class="headerlink" title="b.压缩源文件目录区:"></a>b.压缩源文件目录区:</h4><p>50 4B 01 02：目录中文件文件头标记(0x02014b50)<br>3F 00：压缩使用的 pkware 版本<br>14 00：解压文件所需 pkware 版本<br>00 00：全局方式位标记（有无加密，奇数加密，偶数无加密）<br>08 00：压缩方式<br>5A 7E：最后修改文件时间<br>F7 46：最后修改文件日期<br>16 B5 80 14：CRC-32校验（1480B516）<br>19 00 00 00：压缩后尺寸（25）<br>17 00 00 00：未压缩尺寸（23）<br>07 00：文件名长度<br>24 00：扩展字段长度<br>00 00：文件注释长度<br>00 00：磁盘开始号<br>00 00：内部文件属性<br>20 00 00 00：外部文件属性<br>00 00 00 00：局部头部偏移量<br>6B65792E7478740A00200000000000010018006558F04A1CC5D001BDEBDD3B1CC5D001BDEBDD3B1CC5D001</p>
-<h4 id="c-压缩源文件目录结束标志"><a href="#c-压缩源文件目录结束标志" class="headerlink" title="c.压缩源文件目录结束标志:"></a>c.压缩源文件目录结束标志:</h4><p>50 4B 05 06：目录结束标记<br>00 00：当前磁盘编号<br>00 00：目录区开始磁盘编号<br>01 00：本磁盘上纪录总数<br>01 00：目录区中纪录总数<br>59 00 00 00：目录区尺寸大小<br>3E 00 00 00：目录区对第一张磁盘的偏移量<br>00 00 1A：ZIP 文件注释长度</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://css0k.github.io/2022/01/06/note1-6/" data-id="cky8p3ups000438wb3u8i2w3n" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2022/01/07/note1-7/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          note1.7
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/01/06/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/01/10/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/01/08/V/">^V</a>
-          </li>
-        
-          <li>
-            <a href="/2022/01/07/html1-7/">html1.7</a>
-          </li>
-        
-          <li>
-            <a href="/2022/01/07/python-1/">python</a>
-          </li>
-        
-          <li>
-            <a href="/2022/01/07/note1-7/">note1.7</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2022 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
-</html>

@@ -1,235 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+extends includes/layout.pug
 
-  
-  <title>html1.7 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="meta标签  name 属性name 属性提供了名称&#x2F;值对中的名称。HTML 和 XHTML 标签都没有指定任何预先定义的  名称。通常情况下，您可以自由使用对自己和源文档的读者来说富有意义的名称。 “keywords” 是一个经常被用到的名称。它为文档定义了一组关键字。某些搜索引擎在遇到这些关键字时，会用这些关键字对文档进行分类。 类似这样的 meta 标签可能对于进入搜索引擎的索引有帮助：">
-<meta property="og:type" content="article">
-<meta property="og:title" content="html1.7">
-<meta property="og:url" content="https://css0k.github.io/2022/01/07/html1-7/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="meta标签  name 属性name 属性提供了名称&#x2F;值对中的名称。HTML 和 XHTML 标签都没有指定任何预先定义的  名称。通常情况下，您可以自由使用对自己和源文档的读者来说富有意义的名称。 “keywords” 是一个经常被用到的名称。它为文档定义了一组关键字。某些搜索引擎在遇到这些关键字时，会用这些关键字对文档进行分类。 类似这样的 meta 标签可能对于进入搜索引擎的索引有帮助：">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://css0k.github.io/i/eg_tulip.jpg">
-<meta property="article:published_time" content="2022-01-07T07:36:22.000Z">
-<meta property="article:modified_time" content="2022-01-08T07:55:04.158Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://css0k.github.io/i/eg_tulip.jpg">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+block content
+  #post
+    if top_img === false
+      include includes/header/post-info.pug
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+    article#article-container.post-content!=page.content
+    include includes/post/post-copyright.pug
+    .tag_share
+      if (theme.post_meta.post.tags)
+        .post-meta__tag-list
+          each item, index in page.tags.data
+            a(href=url_for(item.path)).post-meta__tags #[=item.name]
+      include includes/third-party/share/index.pug
+        
+    if theme.reward.enable
+      !=partial('includes/post/reward', {}, {cache: true})
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+    //- ad
+    if theme.ad && theme.ad.post
+      .ads-wrap!=theme.ad.post
+
+    if theme.post_pagination
+      include includes/pagination.pug
+    if theme.related_post && theme.related_post.enable
+      != related_posts(page,site.posts)
+
+    if page.comments !== false && theme.comments && theme.comments.use
+      - var commentsJsLoad = true
+      !=partial('includes/third-party/comments/index', {}, {cache: true})
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://css0k.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-html1-7" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/01/07/html1-7/" class="article-date">
-  <time datetime="2022-01-07T07:36:22.000Z" itemprop="datePublished">2022-01-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      html1.7
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="meta标签"><a href="#meta标签" class="headerlink" title="meta标签  "></a>meta标签  <meta></h2><h3 id="name-属性"><a href="#name-属性" class="headerlink" title="name 属性"></a>name 属性</h3><p>name 属性提供了名称/值对中的名称。HTML 和 XHTML 标签都没有指定任何预先定义的 <meta> 名称。通常情况下，您可以自由使用对自己和源文档的读者来说富有意义的名称。</p>
-<p>“keywords” 是一个经常被用到的名称。它为文档定义了一组关键字。某些搜索引擎在遇到这些关键字时，会用这些关键字对文档进行分类。</p>
-<p>类似这样的 meta 标签可能对于进入搜索引擎的索引有帮助：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;keywords&quot; content=&quot;HTML,ASP,PHP,SQL&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>如果没有提供 name 属性，那么名称/值对中的名称会采用 http-equiv 属性的值。</p>
-<h2 id="form表单"><a href="#form表单" class="headerlink" title="form表单"></a>form表单</h2><h5 id="enctype"><a href="#enctype" class="headerlink" title="enctype"></a>enctype</h5><p>规定在发送表单数据之前如何对其进行编码。</p>
-<p>属性可能的值</p>
-<p><strong>application/x-www-form-urlencoded</strong> 在发送前编码所有字符（默认）</p>
-<p> <strong>multipart/form-data</strong>  不对字符编码。在使用包含文件上传控件的表单时，必须使用该值。</p>
-<p> <strong>text/plain</strong>  空格转换为 “+” 加号，但不对特殊字符编码。</p>
-<h5 id="img-标签"><a href="#img-标签" class="headerlink" title="img 标签"></a>img 标签</h5><h5 id=""><a href="#" class="headerlink" title=""></a><pre><img src="/i/eg_tulip.jpg"  alt="上海鲜花港 - 郁金香" /></pre></h5><p> alt             规定图像的替代文本。</p>
-<p>src             规定显示图像的url</p>
-<p>width        规定图片的宽度</p>
-<p>height       规定图片的高度</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://css0k.github.io/2022/01/07/html1-7/" data-id="cky8p3upo000138wbc4btg6v7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2022/01/08/V/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          ^V
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/01/07/python-1/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">python</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/01/10/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/01/08/V/">^V</a>
-          </li>
-        
-          <li>
-            <a href="/2022/01/07/html1-7/">html1.7</a>
-          </li>
-        
-          <li>
-            <a href="/2022/01/07/python-1/">python</a>
-          </li>
-        
-          <li>
-            <a href="/2022/01/07/note1-7/">note1.7</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2022 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
-</html>
