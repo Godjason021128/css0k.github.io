@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>ctfimage | css_0k的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="图片篇（附加信息）misc19.20主要考察图片的exif信息 1EXIF信息，是可交换图像文件的缩写，是专门为数码相机的照片设定的，可以记录数码照片的属性信息和拍摄数据。EXIF可以附加于JPEG、TIFF、RIFF等文件之中，为其增加有关数码相机拍摄信息的内容和索引图或图像处理软件的版本信息。  exif信息查看网站：http:&#x2F;&#x2F;exif.tuchong.com&#x2F; misc22flag信息被">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ctfimage">
+<meta property="og:url" content="https://css0k.github.io/2022/02/15/ctfimage/index.html">
+<meta property="og:site_name" content="css_0k的博客">
+<meta property="og:description" content="图片篇（附加信息）misc19.20主要考察图片的exif信息 1EXIF信息，是可交换图像文件的缩写，是专门为数码相机的照片设定的，可以记录数码照片的属性信息和拍摄数据。EXIF可以附加于JPEG、TIFF、RIFF等文件之中，为其增加有关数码相机拍摄信息的内容和索引图或图像处理软件的版本信息。  exif信息查看网站：http:&#x2F;&#x2F;exif.tuchong.com&#x2F; misc22flag信息被">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210330152859882.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210330153747725.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210402154120932.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTY5NjU2OA==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210402163218435.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTY5NjU2OA==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210405125818927.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTY5NjU2OA==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210327143100460.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTY5NjU2OA==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210327143100460.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTY5NjU2OA==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy96VmUxaWNBNWV3UWM1N2xDQzFFTDFKWHd5ZXB2MWljelBtMUcxRXQzNHphaGFJT2tZRncwYzJ4TklyQjFWaGVjVHBuM1hMOWtKUUZMR3g2SlhHT0xnVFdBLzY0MA?x-oss-process=image/format,png">
+<meta property="og:image" content="https://css0k.github.io/2022/02/15/ctfimage/Users/css/AppData/Roaming/Typora/typora-user-images/image-20220415141242846.png">
+<meta property="article:published_time" content="2022-02-15T11:33:10.000Z">
+<meta property="article:modified_time" content="2022-04-15T06:12:52.187Z">
+<meta property="article:author" content="css_0k">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210330152859882.png">
+  
+    <link rel="alternate" href="/atom.xml" title="css_0k的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">css_0k的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://css0k.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ctfimage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/02/15/ctfimage/" class="article-date">
+  <time datetime="2022-02-15T11:33:10.000Z" itemprop="datePublished">2022-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ctfimage
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="图片篇（附加信息）"><a href="#图片篇（附加信息）" class="headerlink" title="图片篇（附加信息）"></a>图片篇（附加信息）</h2><h4 id="misc19-20"><a href="#misc19-20" class="headerlink" title="misc19.20"></a>misc19.20</h4><p>主要考察图片的exif信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EXIF信息，是可交换图像文件的缩写，是专门为数码相机的照片设定的，可以记录数码照片的属性信息和拍摄数据。EXIF可以附加于JPEG、TIFF、RIFF等文件之中，为其增加有关数码相机拍摄信息的内容和索引图或图像处理软件的版本信息。</span><br></pre></td></tr></table></figure>
+
+<p>exif信息查看网站：<a target="_blank" rel="noopener" href="http://exif.tuchong.com/">http://exif.tuchong.com/</a></p>
+<h4 id="misc22"><a href="#misc22" class="headerlink" title="misc22"></a>misc22</h4><p>flag信息被藏在缩略图中了，可以用magicexif软件打开查看</p>
+<h4 id="misc23"><a href="#misc23" class="headerlink" title="misc23"></a>misc23</h4><p>使用exiftool看一下发现有好几个历史时间，上面的History Action中有提示</p>
+<p><img src="https://img-blog.csdnimg.cn/20210330152859882.png" alt="在这里插入图片描述">Timestamp指的是时间戳，那个前缀没搞懂是什么意思，DECtoHEX是十进制转十六进制<img src="https://img-blog.csdnimg.cn/20210330153747725.png" alt="在这里插入图片描述"></p>
+<p>这里利用在线网站获取时间戳</p>
+<p>最后得到4段</p>
+<p>874865822 2699237688 2156662245 460377706</p>
+<p>按照21题的经验，分别hex后拼在一起</p>
+<h4 id="misc41"><a href="#misc41" class="headerlink" title="misc41"></a>misc41</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">H4ppy Apr1l F001’s D4y！</span><br><span class="line">愚人节到了，一群笨蛋往南飞，一会儿排成S字，一会儿排成B字。</span><br></pre></td></tr></table></figure>
+
+<p>愚人节限定题，下载得到misc41.jpg，用winhex打开，发现是jpg的文件尾，但是文件头对不上，本来想以这个方向为突破点，没得到结果…</p>
+<p>后面看了套神的wp才知道，提示中的第二句说的就是我…</p>
+<p>第一句提示的F001才是真突破点，这个位置有大量F001，看起来组成了某种形状<img src="https://img-blog.csdnimg.cn/20210402154120932.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTY5NjU2OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我的思路是，把F001出现过的位置中所有十六进制的值单独截取出来，每四位分隔开，把F001替换成0，其他值替换成空格。 最后变成下图的8*125的“图”，其实如果会用CyberChef会更方便，不过我不太习惯。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210402163218435.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTY5NjU2OA==,size_16,color_FFFFFF,t_70" alt="img"></p>
+<h2 id="图片篇（文件结构）"><a href="#图片篇（文件结构）" class="headerlink" title="图片篇（文件结构）"></a>图片篇（文件结构）</h2><h4 id="misc24"><a href="#misc24" class="headerlink" title="misc24"></a>misc24</h4><p>目前是900*150=135000个像素大小，文件头占了53个字节，文件尾的位置在675053字节处(后面两个字节是windows的”补0”)，又因为每个像素点由3个字节（十六进制码6位）表示，每个字节负责控制一种颜色，分别为蓝（Blue）、绿（Green）、红（Red），所以文件真实的像素大小为：(675053-53)/3=225000</p>
+<p><img src="https://img-blog.csdnimg.cn/20210405125818927.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTY5NjU2OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>这题的宽度是对的，所以正确的高度是225000/900=250<br>bmp文件修改高度，借助010editor的bmp.bt模板，我这里高度改到250<img src="https://img-blog.csdnimg.cn/20210327143100460.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTY5NjU2OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210327143100460.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTY5NjU2OA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">然后就能看到flag</p>
+<h4 id="misc25"><a href="#misc25" class="headerlink" title="misc25"></a>misc25</h4><p>提示：flag在图片下面<br>png改图片高度还是很简单的，左框是图片宽度，右框是图片高度</p>
+<p>同样把00000096改成00000FA,看到下面藏的数据</p>
+<h4 id="misc26"><a href="#misc26" class="headerlink" title="misc26"></a>misc26</h4><p>png格式图片很熟悉  先随便改一个高度 发现没变化  然后使劲增高 最后发现需要跑一下正确高度   啥也不用说直接用python跑出来  关于十六进制还是十进制数试一试就ok</p>
+<h4 id="misc27"><a href="#misc27" class="headerlink" title="misc27"></a>misc27</h4><p>jpg格式的图片不知道宽高在哪  不要慌 图片属性详细信息看宽高  十六进制转化 改高点 得到flag</p>
+<h4 id="misc28"><a href="#misc28" class="headerlink" title="misc28"></a>misc28</h4><p>gif图片实验证明要修改两处宽高才会生效  搜出两处一次修改 得到flag</p>
+<blockquote>
+<h3 id="●-IHDR"><a href="#●-IHDR" class="headerlink" title="● IHDR"></a>● IHDR</h3><p>文件头数据块IHDR是PNG文件中的第一个数据块，而且一个PNG文件中只能有一个文件头数据块，它包含了PNG文件中存储的图像数据的基本信息，包括了图片的宽，高，图像深度，图像类型，压缩方法等。</p>
+<p><a target="_blank" rel="noopener" href="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy96VmUxaWNBNWV3UWM1N2xDQzFFTDFKWHd5ZXB2MWljelBtMUcxRXQzNHphaGFJT2tZRncwYzJ4TklyQjFWaGVjVHBuM1hMOWtKUUZMR3g2SlhHT0xnVFdBLzY0MA?x-oss-process=image/format,png"><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy96VmUxaWNBNWV3UWM1N2xDQzFFTDFKWHd5ZXB2MWljelBtMUcxRXQzNHphaGFJT2tZRncwYzJ4TklyQjFWaGVjVHBuM1hMOWtKUUZMR3g2SlhHT0xnVFdBLzY0MA?x-oss-process=image/format,png" alt="img"></a></p>
+<p>如图所示，标蓝部分为IHDR数据块，00 00 00 0D代表IHDR头块长13，49 48 44 52代表IHDR标识，00 00 02 D3代表图片的宽，00 00 02 46代表图片的高。其中我们主要关注图片的宽和高。</p>
+<p>在CTF中，经常通过改变宽和高使得图片显示不完整或者无法显示从而达到隐藏信息的目的。对于这种情况，我们不能轻易修改图片的宽或高的值，应该通过CRC的值推算出宽或高的值；或者是修改宽或高的值后，使用CRC计算工具，计算得出新的CRC值替换原本的值，以防图片报错打不开。</p>
+<h3 id="●-IDAT"><a href="#●-IDAT" class="headerlink" title="● IDAT"></a>● IDAT</h3><p>图像数据块 IDAT（image data chunk）：它存储实际的数据，在数据流中可包含多个连续顺序的图像数据块。这是一个可以存在多个数据块类型的数据块。它的作用就是存储着图像真正的数据。IDAT采用 LZ77 算法的派生算法进行压缩，可以用 zlib 解压缩。值得注意的是，IDAT 块只有当上一个块充满时，才会继续一个新的块。</p>
+</blockquote>
+<h4 id="misc29-33"><a href="#misc29-33" class="headerlink" title="misc29-33"></a>misc29-33</h4><p>这些题应该都是差不多思路，无非是改宽高    不过需要注意的是在一方定范围后，应关注另一边的，需要增宽或增高之后发现模糊的水印之后再跑，要不就算跑出来也不会显示</p>
+<blockquote>
+<p>用tweakpng打开发现CRC校验错误，说明要<strong>改宽高</strong>了</p>
+<p>修改png，jpg，gif，bmp四种图片文件的宽高</p>
+<p>png: 前四位是宽，后四位是高</p>
+<p>jpg: 前两位是高，后两位是宽       </p>
+<p>bmp:前四位是宽，后四位是高，但是是倒着写   03 B6———&gt;写成B6 03</p>
+<p>gif的宽高需要改两处值</p>
+</blockquote>
+<h4 id="misc38"><a href="#misc38" class="headerlink" title="misc38"></a>misc38</h4><p>动态png  可以用浏览器打开也可以是用honeyview打开   一帧一帧看就可以</p>
+<h4 id="misc39"><a href="#misc39" class="headerlink" title="misc39"></a>misc39</h4><p>这题也是一个gif，不过这里是利用不同帧之间的间隔时间来隐写的。</p>
+<p>这里利用linux下的工具identify</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">安装命令：sudo apt-get install imagemagick</span><br><span class="line">基本的命令格式：</span><br><span class="line">　　identify [options] input-fileidentify:命令名称</span><br><span class="line">　　options:参数</span><br><span class="line">　　input-file:文件名。</span><br><span class="line">提取命令：identify -format &quot;%T &quot; misc39.gif &gt; 1.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p>得到的一串36和37，考虑把37换成1、36换成0，就得到长度为287的二进制字符串，考虑每7位转一个字符(正常是8位一组)，得到flag。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">&quot;11000111110100110011011100111101000110111111101111111011011010101100100111000011000101100101100110110011001110010111001011010111001101100010011011111000101100101011001001101100111000110010001110010110110011001111000010111001110010111000101100011110000101100000110100011010101110011111101&quot;</span></span><br><span class="line">flag=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">41</span>): <span class="comment">#287//7</span></span><br><span class="line">    flag += <span class="built_in">chr</span>(<span class="built_in">int</span>(s[<span class="number">7</span>*i:<span class="number">7</span>*(i+<span class="number">1</span>)],<span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
+
+<h4 id="misc40"><a href="#misc40" class="headerlink" title="misc40"></a>misc40</h4><p>apng格式的图片第一次见   也多了一个处理的工具APNG Disassembler  分帧并获取每一帧的详细信息</p>
+<p>获取之后翻一翻大佬的脚本  当然是要为自己写脚本奠定一下基础</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">flag=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">28</span>,<span class="number">69</span>): <span class="comment">#flag内容从28位开始</span></span><br><span class="line">    f = <span class="built_in">open</span>(<span class="string">&#x27;F:\谷歌下载\misc40\\apngframe&#x27;</span>+<span class="built_in">str</span>(i)+<span class="string">&#x27;.txt&#x27;</span>)</span><br><span class="line">    s = f.read()</span><br><span class="line">    flag += <span class="built_in">chr</span>(<span class="built_in">int</span>(s.split(<span class="string">&quot;/&quot;</span>)[<span class="number">0</span>][<span class="number">6</span>:]))</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
+
+<h4 id="羊城杯-2020-逃离东南亚"><a href="#羊城杯-2020-逃离东南亚" class="headerlink" title="[羊城杯 2020]逃离东南亚"></a>[羊城杯 2020]逃离东南亚</h4><p>brainfuck语言</p>
+<p><img src="/2022/02/15/ctfimage/Users\css\AppData\Roaming\Typora\typora-user-images\image-20220415141242846.png" alt="image-20220415141242846"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://css0k.github.io/2022/02/15/ctfimage/" data-id="cl2w3h1hy0003agw58ji4ga1z" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/02/28/ctfnote/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ctfnote
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/02/10/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86&%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">信息收集&amp;爆破+命令执行</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc%E5%9B%BE%E7%89%87/" rel="tag">misc图片</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/" rel="tag">图片隐写</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/misc%E5%9B%BE%E7%89%87/" style="font-size: 10px;">misc图片</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/" style="font-size: 10px;">图片隐写</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/12/%E9%9A%90%E5%86%99%E9%A2%98%E6%80%9D%E8%B7%AF/">图片题思路</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/09/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E7%9F%A5%E8%AF%86/">图片隐写知识</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/05/1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/04/php%E7%89%B9%E6%80%A7/">php特性</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/04/sqli-labs/">sqli-labs</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 css_0k<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

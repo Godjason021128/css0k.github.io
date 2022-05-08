@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>nsswp | css_0k的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="因为web没显示 先打打密码试试 cryptoclassic阿这，吃工具的题 一键解码发现 说这个是假的  看来后面这后缀就是提示这个信息的 说尝试base 继续解码前面的部分 Vigenere 工具网站直接爆破,感觉选择英文，直接爆出来了 factor md5加密 这两个数的和  尝试一下  试了试是32位小写字母加密 rsa这题就是普通的rsa加密算法，正好前段时间搜到一个解密脚本 带上跑一下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nsswp">
+<meta property="og:url" content="https://css0k.github.io/2022/03/19/nsswp/index.html">
+<meta property="og:site_name" content="css_0k的博客">
+<meta property="og:description" content="因为web没显示 先打打密码试试 cryptoclassic阿这，吃工具的题 一键解码发现 说这个是假的  看来后面这后缀就是提示这个信息的 说尝试base 继续解码前面的部分 Vigenere 工具网站直接爆破,感觉选择英文，直接爆出来了 factor md5加密 这两个数的和  尝试一下  试了试是32位小写字母加密 rsa这题就是普通的rsa加密算法，正好前段时间搜到一个解密脚本 带上跑一下">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="file:///C:/Users/css/AppData/Roaming/Tencent/Users/1327246897/QQ/WinTemp/RichOle/AK0E%7BM%7B~RDAKY91@@R@R_KP.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/68e7bed9d9bf41b3a6d62c26835abce8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5peF5Lq644CCMzU4,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4d9b3c615ce143ac87235dd5b933ff85.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5peF5Lq644CCMzU4,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/55a985c592234e5ab4143ed5c0aecbf3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5peF5Lq644CCMzU4,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/838d5c1b9d664dcc80f92a15ad295876.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5peF5Lq644CCMzU4,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/0a3430dcad844994919b815153975301.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5peF5Lq644CCMzU4,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e7f4ab226e174a028e7c4a3a978aaf3d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5peF5Lq644CCMzU4,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/bf61726f1c3941089aff4a8649df553a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5peF5Lq644CCMzU4,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
+<meta property="article:published_time" content="2022-03-19T07:24:16.000Z">
+<meta property="article:modified_time" content="2022-03-20T15:10:51.277Z">
+<meta property="article:author" content="css_0k">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="file:///C:/Users/css/AppData/Roaming/Tencent/Users/1327246897/QQ/WinTemp/RichOle/AK0E%7BM%7B~RDAKY91@@R@R_KP.png">
+  
+    <link rel="alternate" href="/atom.xml" title="css_0k的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">css_0k的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://css0k.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-nsswp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/19/nsswp/" class="article-date">
+  <time datetime="2022-03-19T07:24:16.000Z" itemprop="datePublished">2022-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      nsswp
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>因为web没显示 先打打密码试试</p>
+<h2 id="crypto"><a href="#crypto" class="headerlink" title="crypto"></a>crypto</h2><h4 id="classic"><a href="#classic" class="headerlink" title="classic"></a>classic</h4><p>阿这，吃工具的题 一键解码发现<img src="file:///C:\Users\css\AppData\Roaming\Tencent\Users\1327246897\QQ\WinTemp\RichOle\AK0E{M{~RDAKY91@@R@R_KP.png" alt="img"></p>
+<p>说这个是假的  看来后面这后缀就是提示这个信息的 说尝试base</p>
+<p>继续解码前面的部分</p>
+<h4 id="Vigenere"><a href="#Vigenere" class="headerlink" title="Vigenere"></a>Vigenere</h4><p><img src="https://img-blog.csdnimg.cn/68e7bed9d9bf41b3a6d62c26835abce8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5peF5Lq644CCMzU4,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"></p>
+<p>工具网站直接爆破,感觉选择英文，直接爆出来了</p>
+<h4 id="factor"><a href="#factor" class="headerlink" title="factor"></a>factor</h4><p><img src="https://img-blog.csdnimg.cn/4d9b3c615ce143ac87235dd5b933ff85.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5peF5Lq644CCMzU4,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p>md5加密 这两个数的和  尝试一下  试了试是32位小写字母加密</p>
+<h4 id="rsa"><a href="#rsa" class="headerlink" title="rsa"></a>rsa</h4><p>这题就是普通的rsa加密算法，正好前段时间搜到一个解密脚本 带上跑一下就出来了</p>
+<h2 id="RE"><a href="#RE" class="headerlink" title="RE"></a>RE</h2><h4 id="easy-c"><a href="#easy-c" class="headerlink" title="easy_c"></a>easy_c</h4><p><img src="https://img-blog.csdnimg.cn/55a985c592234e5ab4143ed5c0aecbf3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5peF5Lq644CCMzU4,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p>原题先自增再亦或 得到a和b比较函数strcmp结果不为0</p>
+<p>所以a=b  把程序里的b和a互换  反向跑一下 得到flag</p>
+<h4 id="easy-python"><a href="#easy-python" class="headerlink" title="easy_python"></a>easy_python</h4><p>Base64加密过程</p>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/838d5c1b9d664dcc80f92a15ad295876.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5peF5Lq644CCMzU4,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">1.首先将每个字符转化为ASCII码<br>2.将ASCII码转换为二进制位<br>3.每6个为一组划分新的二进制位<br>4.在新划分的每组二进制位前加两个0<br>5.将新得到的4组8位二进制转换为10进制的索引位<br>6.通过Base64对照表，对照替换得到Base64编码</p>
+</blockquote>
+<p>如果需要编码的字节不能被3整除，则会多出1个或两个字节，处理方式是加上”=”，也就是我们平时看到的的Base64编码最后的”=“或”==”</p>
+<p><img src="https://img-blog.csdnimg.cn/0a3430dcad844994919b815153975301.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5peF5Lq644CCMzU4,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p>这就是base64加密过程   直接base64解码得到flag</p>
+<h2 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h2><h4 id="你能拼出flag吗？"><a href="#你能拼出flag吗？" class="headerlink" title="你能拼出flag吗？"></a>你能拼出flag吗？</h4><p>nnd做出来也满肚子火  欺负我不是原批？</p>
+<p>先把第一段代码一键解码  就看到<code>BAQNKLQ</code>比较靠谱 存一下</p>
+<p>第二段一键解码 看到base64中解出来的仍然是base64  再解一下又出来一个base64  再来！ 最终出来一串字符<code>EKWVE VTKJV</code>  奇怪 思路断了  </p>
+<p>再看一下题  说最后一段是百度  应该不是汉字上去  百度一下试试</p>
+<p>确实有个昨天传的知乎  原神？！  复制下来 去掉空格</p>
+<h4 id="办公文件里的秘密"><a href="#办公文件里的秘密" class="headerlink" title="办公文件里的秘密"></a>办公文件里的秘密</h4><p>打开之后把文件拖到010editor中发现文件头是zip文件头  直接改后缀名</p>
+<p>打开之后发现好多文件而且都是奇怪的格式  试探之后发现仍有zip文件</p>
+<p>就是colour这个文件，打开发现是个加密   先看是不是伪加密  不是</p>
+<p>直接拖到ziperello里密码爆破   <img src="https://img-blog.csdnimg.cn/e7f4ab226e174a028e7c4a3a978aaf3d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5peF5Lq644CCMzU4,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p>得到flag</p>
+<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h4 id="babyphp"><a href="#babyphp" class="headerlink" title="babyphp"></a>babyphp</h4><p><img src="https://img-blog.csdnimg.cn/bf61726f1c3941089aff4a8649df553a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5peF5Lq644CCMzU4,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p>字符串绕过和MD5特殊值绕过</p>
+<h4 id="ezgame"><a href="#ezgame" class="headerlink" title="ezgame"></a>ezgame</h4><p>查看源代码之后进js中查看   发现了flag</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://css0k.github.io/2022/03/19/nsswp/" data-id="cl2w3h1i7000eagw58rujgkcm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/19/%E5%B8%B8%E7%94%A8%E5%A7%BF%E5%8A%BF/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/14/interestingPHP/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">interestingPHP</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc%E5%9B%BE%E7%89%87/" rel="tag">misc图片</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/" rel="tag">图片隐写</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/misc%E5%9B%BE%E7%89%87/" style="font-size: 10px;">misc图片</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/" style="font-size: 10px;">图片隐写</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/12/%E9%9A%90%E5%86%99%E9%A2%98%E6%80%9D%E8%B7%AF/">图片题思路</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/09/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E7%9F%A5%E8%AF%86/">图片隐写知识</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/05/1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/04/php%E7%89%B9%E6%80%A7/">php特性</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/04/sqli-labs/">sqli-labs</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 css_0k<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

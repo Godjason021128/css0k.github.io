@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>requests2 | css_0k的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="requests库自我学习安装虚拟环境按照教程新建项目搭建requests测试虚拟路径  配好环境准备实验 学习http请求方式1234567891011121314151617import requests				        #引入requests第三方库# get post put delete option trace  http请求方式url &#x3D; &quot;https:&#x2F;&#x2F;httpb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="requests2">
+<meta property="og:url" content="https://css0k.github.io/2022/03/05/requests2/index.html">
+<meta property="og:site_name" content="css_0k的博客">
+<meta property="og:description" content="requests库自我学习安装虚拟环境按照教程新建项目搭建requests测试虚拟路径  配好环境准备实验 学习http请求方式1234567891011121314151617import requests				        #引入requests第三方库# get post put delete option trace  http请求方式url &#x3D; &quot;https:&#x2F;&#x2F;httpb">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://css0k.github.io/2022/03/05/requests2/Users/css/AppData/Roaming/Typora/typora-user-images/image-20220305205409843.png">
+<meta property="og:image" content="https://css0k.github.io/2022/03/05/requests2/Users/css/AppData/Roaming/Typora/typora-user-images/image-20220305205451511.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10283546-f65da1a12c7e7eae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/708/format/webp">
+<meta property="article:published_time" content="2022-03-05T12:19:00.000Z">
+<meta property="article:modified_time" content="2022-03-07T04:45:30.778Z">
+<meta property="article:author" content="css_0k">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://css0k.github.io/2022/03/05/requests2/Users/css/AppData/Roaming/Typora/typora-user-images/image-20220305205409843.png">
+  
+    <link rel="alternate" href="/atom.xml" title="css_0k的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">css_0k的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://css0k.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-requests2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/05/requests2/" class="article-date">
+  <time datetime="2022-03-05T12:19:00.000Z" itemprop="datePublished">2022-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      requests2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="requests库自我学习"><a href="#requests库自我学习" class="headerlink" title="requests库自我学习"></a>requests库自我学习</h2><h4 id="安装虚拟环境"><a href="#安装虚拟环境" class="headerlink" title="安装虚拟环境"></a>安装虚拟环境</h4><p>按照教程新建项目搭建requests测试虚拟路径  配好环境准备实验</p>
+<h4 id="学习http请求方式"><a href="#学习http请求方式" class="headerlink" title="学习http请求方式"></a>学习http请求方式</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests				        <span class="comment">#引入requests第三方库</span></span><br><span class="line"><span class="comment"># get post put delete option trace  http请求方式</span></span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://httpbin.org/get&quot;</span>    <span class="comment">#请求方式可更改</span></span><br><span class="line"></span><br><span class="line">params = &#123;</span><br><span class="line">   <span class="string">&quot;offset&quot;</span>:<span class="number">10</span></span><br><span class="line">&#125;                                  <span class="comment">#get请求方式具体内容：相当于?offset=10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#添加头部操作</span></span><br><span class="line">headers=&#123;</span><br><span class="line">   </span><br><span class="line">&#125;								   <span class="comment">#添加后得到的响应中更改  可用此改变user-agent信息用于隐蔽</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">response = requests.get(url = url,params = params,headers = headers)   </span><br><span class="line"><span class="built_in">print</span>(response.text)		<span class="comment"># Json格式输出</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/05/requests2/Users\css\AppData\Roaming\Typora\typora-user-images\image-20220305205409843.png" alt="image-20220305205409843"></p>
+<p>添加头部后（定制请求头）</p>
+<p>有的网站需要请求头中的部分信息，如user-agent信息，此时便可以通过定制请求头来访问此网站 </p>
+<p><img src="/2022/03/05/requests2/Users\css\AppData\Roaming\Typora\typora-user-images\image-20220305205451511.png" alt="image-20220305205451511"></p>
+<p>谷歌浏览器输入<a href="chrome://version">chrome://version</a>，就可以得到用户代理</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10283546-f65da1a12c7e7eae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/708/format/webp" alt="img"></p>
+<h5 id="get请求"><a href="#get请求" class="headerlink" title="get请求"></a>get请求</h5><p>params参数  ：字典形式，可添加多个键值对 从而同时传参  还可以将一个列表作为值传入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">parameter = &#123;</span><br><span class="line">            <span class="string">&quot;key1&quot;</span>:<span class="string">&quot;value&quot;</span>,</span><br><span class="line">            <span class="string">&quot;key2&quot;</span>:<span class="literal">None</span>,</span><br><span class="line">    		<span class="string">&quot;key3&quot;</span>:[<span class="string">&quot;value21&quot;</span>,<span class="string">&quot;value22&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">response4 = requests.get(<span class="string">&quot;http://httpbin.org/get&quot;</span>,params = parameter)</span><br><span class="line"><span class="built_in">print</span>(response4.url)    <span class="comment">#http://httpbin.org/get?key1=value&amp;key3=value21&amp;key3=value22</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>text和content的区别：</p>
+<p>content中间存的是字节码，而text中存的是Beautifulsoup根据猜测的编码方式将content内容编码成字符串。</p>
+<p>直接输出content，会发现前面存在b’这样的标志，这是字节字符串的标志，而text是，没有前面的b,对于纯ascii码，这两个可以说一模一样，对于其他的文字，需要正确编码才能正常显示。大部分情况建议使用.text，因为显示的是汉字，但有时会显示乱码，这时需要用.content.decode(‘utf-8’)，中文常用utf-8和GBK，GB2312等。这样可以手工选择文字编码方式。</p>
+<p>所以简而言之，.text是现成的字符串，.content还要编码，但是.text不是所有时候显示都正常，这是就需要用.content进行手动编码</p>
+</blockquote>
+<p>请求发出后，Requests 会基于 HTTP 头部对响应的编码作出有根据的推测。当访问 r.text 之时，Requests 会使用其推测的文本编码。可以找出 Requests 使用了什么编码，并且能够使用 r.encoding 属性来改变它：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(response.encoding)    <span class="comment"># utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#使用 r.content 来找到编码，然后设置 r.encoding 为相应的编码</span></span><br><span class="line"><span class="built_in">print</span>(response.encoding)    <span class="comment"># ISO-8859-1</span></span><br><span class="line"><span class="comment">#改变编码</span></span><br><span class="line">response.encoding = <span class="string">&#x27;ISO-8859-1&#x27;</span></span><br><span class="line"><span class="comment">#二进制响应内容</span></span><br><span class="line"><span class="comment">#以字节的方式访问请求响应体，对于非文本请求：</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(response.content))   </span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(response.text))</span><br></pre></td></tr></table></figure>
+
+<p>response.text返回的是Unicode型的数据。—文本</p>
+<p>response.content返回的是bytes型也就是二进制的数据。—–图片等</p>
+<p>但是两者打印输出是一样的</p>
+<h5 id="post请求"><a href="#post请求" class="headerlink" title="post请求"></a>post请求</h5><p>data参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">payload = &#123;</span><br><span class="line">    <span class="string">&quot;key1&quot;</span>:<span class="string">&quot;value1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;key2&quot;</span>:<span class="string">&quot;value2&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">response = requests.post(<span class="string">&quot;http://httpbin.org/post&quot;</span>,data = payload)</span><br><span class="line"><span class="built_in">print</span>(response.text)</span><br></pre></td></tr></table></figure>
+
+<p>还可以为 data 参数传入一个元组列表。在表单中多个元素使用同一 key 的时候，这种方式尤其有效，字典会第二个值覆盖第一个值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload = ((<span class="string">&quot;key1&quot;</span>,<span class="string">&quot;value1&quot;</span>),(<span class="string">&quot;key1&quot;</span>,<span class="string">&quot;value2&quot;</span>))</span><br><span class="line">response = requests.post(<span class="string">&quot;http://httpbin.org/post&quot;</span>,data = payload)</span><br><span class="line"><span class="built_in">print</span>(response.text)</span><br></pre></td></tr></table></figure>
+
+<p>可以通过response获得很多属性，例子如下</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">response = requests.get(<span class="string">&quot;http://www.baidu.com&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">type</span>(response.status_code),response.status_code)          #&lt; class <span class="string">&#x27;int&#x27;</span>&gt; <span class="number">200</span></span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">type</span>(response.headers),response.headers)                  # 头部信息</span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">type</span>(response.cookies),response.cookies)                  #&lt;class <span class="string">&#x27;requests.cookies.RequestsCookieJar&#x27;</span>&gt; &lt;RequestsCookieJar[&lt;Cookie BDORZ=<span class="number">27315</span> <span class="keyword">for</span> .baidu.com/&gt;]&gt;</span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">type</span>(response.url),response.url)                          # &lt;class <span class="string">&#x27;str&#x27;</span>&gt; http:<span class="comment">//www.baidu.com/</span></span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">type</span>(response.history),response.history)                  # &lt;class <span class="string">&#x27;list&#x27;</span>&gt; []</span><br></pre></td></tr></table></figure>
+
+<p>状态码判断,requests还附带了一个内置的状态码查询对象</p>
+<p>主要有如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">100: (<span class="string">&#x27;continue&#x27;</span>,),</span><br><span class="line">101: (<span class="string">&#x27;switching_protocols&#x27;</span>,),</span><br><span class="line">102: (<span class="string">&#x27;processing&#x27;</span>,),</span><br><span class="line">103: (<span class="string">&#x27;checkpoint&#x27;</span>,),</span><br><span class="line">122: (<span class="string">&#x27;uri_too_long&#x27;</span>, <span class="string">&#x27;request_uri_too_long&#x27;</span>),</span><br><span class="line">200: (<span class="string">&#x27;ok&#x27;</span>, <span class="string">&#x27;okay&#x27;</span>, <span class="string">&#x27;all_ok&#x27;</span>, <span class="string">&#x27;all_okay&#x27;</span>, <span class="string">&#x27;all_good&#x27;</span>, <span class="string">&#x27;\o/&#x27;</span>, <span class="string">&#x27;✓&#x27;</span>),</span><br><span class="line">201: (<span class="string">&#x27;created&#x27;</span>,),</span><br><span class="line">202: (<span class="string">&#x27;accepted&#x27;</span>,),</span><br><span class="line">203: (<span class="string">&#x27;non_authoritative_info&#x27;</span>, <span class="string">&#x27;non_authoritative_information&#x27;</span>),</span><br><span class="line">204: (<span class="string">&#x27;no_content&#x27;</span>,),</span><br><span class="line">205: (<span class="string">&#x27;reset_content&#x27;</span>, <span class="string">&#x27;reset&#x27;</span>),</span><br><span class="line">206: (<span class="string">&#x27;partial_content&#x27;</span>, <span class="string">&#x27;partial&#x27;</span>),</span><br><span class="line">207: (<span class="string">&#x27;multi_status&#x27;</span>, <span class="string">&#x27;multiple_status&#x27;</span>, <span class="string">&#x27;multi_stati&#x27;</span>, <span class="string">&#x27;multiple_stati&#x27;</span>),</span><br><span class="line">208: (<span class="string">&#x27;already_reported&#x27;</span>,),</span><br><span class="line">226: (<span class="string">&#x27;im_used&#x27;</span>,),</span><br><span class="line"></span><br><span class="line">Redirection.</span><br><span class="line">300: (<span class="string">&#x27;multiple_choices&#x27;</span>,),</span><br><span class="line">301: (<span class="string">&#x27;moved_permanently&#x27;</span>, <span class="string">&#x27;moved&#x27;</span>, <span class="string">&#x27;\o-&#x27;</span>),</span><br><span class="line">302: (<span class="string">&#x27;found&#x27;</span>,),</span><br><span class="line">303: (<span class="string">&#x27;see_other&#x27;</span>, <span class="string">&#x27;other&#x27;</span>),</span><br><span class="line">304: (<span class="string">&#x27;not_modified&#x27;</span>,),</span><br><span class="line">305: (<span class="string">&#x27;use_proxy&#x27;</span>,),</span><br><span class="line">306: (<span class="string">&#x27;switch_proxy&#x27;</span>,),</span><br><span class="line">307: (<span class="string">&#x27;temporary_redirect&#x27;</span>, <span class="string">&#x27;temporary_moved&#x27;</span>, <span class="string">&#x27;temporary&#x27;</span>),</span><br><span class="line">308: (<span class="string">&#x27;permanent_redirect&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;resume_incomplete&#x27;</span>, <span class="string">&#x27;resume&#x27;</span>,), <span class="comment"># These 2 to be removed in 3.0</span></span><br><span class="line"></span><br><span class="line">Client Error.</span><br><span class="line">400: (<span class="string">&#x27;bad_request&#x27;</span>, <span class="string">&#x27;bad&#x27;</span>),</span><br><span class="line">401: (<span class="string">&#x27;unauthorized&#x27;</span>,),</span><br><span class="line">402: (<span class="string">&#x27;payment_required&#x27;</span>, <span class="string">&#x27;payment&#x27;</span>),</span><br><span class="line">403: (<span class="string">&#x27;forbidden&#x27;</span>,),</span><br><span class="line">404: (<span class="string">&#x27;not_found&#x27;</span>, <span class="string">&#x27;-o-&#x27;</span>),</span><br><span class="line">405: (<span class="string">&#x27;method_not_allowed&#x27;</span>, <span class="string">&#x27;not_allowed&#x27;</span>),</span><br><span class="line">406: (<span class="string">&#x27;not_acceptable&#x27;</span>,),</span><br><span class="line">407: (<span class="string">&#x27;proxy_authentication_required&#x27;</span>, <span class="string">&#x27;proxy_auth&#x27;</span>, <span class="string">&#x27;proxy_authentication&#x27;</span>),</span><br><span class="line">408: (<span class="string">&#x27;request_timeout&#x27;</span>, <span class="string">&#x27;timeout&#x27;</span>),</span><br><span class="line">409: (<span class="string">&#x27;conflict&#x27;</span>,),</span><br><span class="line">410: (<span class="string">&#x27;gone&#x27;</span>,),</span><br><span class="line">411: (<span class="string">&#x27;length_required&#x27;</span>,),</span><br><span class="line">412: (<span class="string">&#x27;precondition_failed&#x27;</span>, <span class="string">&#x27;precondition&#x27;</span>),</span><br><span class="line">413: (<span class="string">&#x27;request_entity_too_large&#x27;</span>,),</span><br><span class="line">414: (<span class="string">&#x27;request_uri_too_large&#x27;</span>,),</span><br><span class="line">415: (<span class="string">&#x27;unsupported_media_type&#x27;</span>, <span class="string">&#x27;unsupported_media&#x27;</span>, <span class="string">&#x27;media_type&#x27;</span>),</span><br><span class="line">416: (<span class="string">&#x27;requested_range_not_satisfiable&#x27;</span>, <span class="string">&#x27;requested_range&#x27;</span>, <span class="string">&#x27;range_not_satisfiable&#x27;</span>),</span><br><span class="line">417: (<span class="string">&#x27;expectation_failed&#x27;</span>,),</span><br><span class="line">418: (<span class="string">&#x27;im_a_teapot&#x27;</span>, <span class="string">&#x27;teapot&#x27;</span>, <span class="string">&#x27;i_am_a_teapot&#x27;</span>),</span><br><span class="line">421: (<span class="string">&#x27;misdirected_request&#x27;</span>,),</span><br><span class="line">422: (<span class="string">&#x27;unprocessable_entity&#x27;</span>, <span class="string">&#x27;unprocessable&#x27;</span>),</span><br><span class="line">423: (<span class="string">&#x27;locked&#x27;</span>,),</span><br><span class="line">424: (<span class="string">&#x27;failed_dependency&#x27;</span>, <span class="string">&#x27;dependency&#x27;</span>),</span><br><span class="line">425: (<span class="string">&#x27;unordered_collection&#x27;</span>, <span class="string">&#x27;unordered&#x27;</span>),</span><br><span class="line">426: (<span class="string">&#x27;upgrade_required&#x27;</span>, <span class="string">&#x27;upgrade&#x27;</span>),</span><br><span class="line">428: (<span class="string">&#x27;precondition_required&#x27;</span>, <span class="string">&#x27;precondition&#x27;</span>),</span><br><span class="line">429: (<span class="string">&#x27;too_many_requests&#x27;</span>, <span class="string">&#x27;too_many&#x27;</span>),</span><br><span class="line">431: (<span class="string">&#x27;header_fields_too_large&#x27;</span>, <span class="string">&#x27;fields_too_large&#x27;</span>),</span><br><span class="line">444: (<span class="string">&#x27;no_response&#x27;</span>, <span class="string">&#x27;none&#x27;</span>),</span><br><span class="line">449: (<span class="string">&#x27;retry_with&#x27;</span>, <span class="string">&#x27;retry&#x27;</span>),</span><br><span class="line">450: (<span class="string">&#x27;blocked_by_windows_parental_controls&#x27;</span>, <span class="string">&#x27;parental_controls&#x27;</span>),</span><br><span class="line">451: (<span class="string">&#x27;unavailable_for_legal_reasons&#x27;</span>, <span class="string">&#x27;legal_reasons&#x27;</span>),</span><br><span class="line">499: (<span class="string">&#x27;client_closed_request&#x27;</span>,),</span><br><span class="line"></span><br><span class="line">Server Error.</span><br><span class="line">500: (<span class="string">&#x27;internal_server_error&#x27;</span>, <span class="string">&#x27;server_error&#x27;</span>, <span class="string">&#x27;/o\&#x27;</span>, <span class="string">&#x27;✗&#x27;</span>),</span><br><span class="line">501: (<span class="string">&#x27;not_implemented&#x27;</span>,),</span><br><span class="line">502: (<span class="string">&#x27;bad_gateway&#x27;</span>,),</span><br><span class="line">503: (<span class="string">&#x27;service_unavailable&#x27;</span>, <span class="string">&#x27;unavailable&#x27;</span>),</span><br><span class="line">504: (<span class="string">&#x27;gateway_timeout&#x27;</span>,),</span><br><span class="line">505: (<span class="string">&#x27;http_version_not_supported&#x27;</span>, <span class="string">&#x27;http_version&#x27;</span>),</span><br><span class="line">506: (<span class="string">&#x27;variant_also_negotiates&#x27;</span>,),</span><br><span class="line">507: (<span class="string">&#x27;insufficient_storage&#x27;</span>,),</span><br><span class="line">509: (<span class="string">&#x27;bandwidth_limit_exceeded&#x27;</span>, <span class="string">&#x27;bandwidth&#x27;</span>),</span><br><span class="line">510: (<span class="string">&#x27;not_extended&#x27;</span>,),</span><br><span class="line">511: (<span class="string">&#x27;network_authentication_required&#x27;</span>, <span class="string">&#x27;network_auth&#x27;</span>, <span class="string">&#x27;network_authentication&#x27;</span>),</span><br></pre></td></tr></table></figure>
+
+<p>例子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">response= requests.get(&quot;http://www.baidu.com&quot;)</span><br><span class="line">if response.status_code == requests.codes.ok:</span><br><span class="line">    print(&quot;访问成功&quot;)</span><br><span class="line"></span><br><span class="line">可以直接使用状态码，更方便</span><br><span class="line"></span><br><span class="line">if response.status_code == 200:</span><br><span class="line">    print(&quot;访问成功&quot;)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://css0k.github.io/2022/03/05/requests2/" data-id="cl2w3h1ie000kagw56guahqe2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/09/nssctf/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          nssctf
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/05/requests1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">requests1</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc%E5%9B%BE%E7%89%87/" rel="tag">misc图片</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/" rel="tag">图片隐写</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/misc%E5%9B%BE%E7%89%87/" style="font-size: 10px;">misc图片</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/" style="font-size: 10px;">图片隐写</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/12/%E9%9A%90%E5%86%99%E9%A2%98%E6%80%9D%E8%B7%AF/">图片题思路</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/09/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E7%9F%A5%E8%AF%86/">图片隐写知识</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/05/1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/04/php%E7%89%B9%E6%80%A7/">php特性</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/04/sqli-labs/">sqli-labs</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 css_0k<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

