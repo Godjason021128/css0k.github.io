@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>PIL库 | css_0k的博客</title><meta name="keywords" content="图像处理 python"><meta name="author" content="css_0k"><meta name="copyright" content="css_0k"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="PIL库概述PIL库支持图像存储、 显示和处理， 它能够处理几乎所有图片格式， 可以完成对图像的缩放、 剪裁、 叠加以及向图像添加线条、 图像和文字等操作 PIL库可以完成图像归档和图像处理两方面功能需求：(1)图像归档：对图像进行批处理、 生成图像预览、 图像格式转换等 (2)图像处理：图像基本处理、 像素处理、 颜色处理等 Image类解析图像的创建在PIL中， 任何一个图像文件都可以用Ima">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PIL库">
+<meta property="og:url" content="https://css0k.github.io/2022/05/24/PIL%E5%BA%93/index.html">
+<meta property="og:site_name" content="css_0k的博客">
+<meta property="og:description" content="PIL库概述PIL库支持图像存储、 显示和处理， 它能够处理几乎所有图片格式， 可以完成对图像的缩放、 剪裁、 叠加以及向图像添加线条、 图像和文字等操作 PIL库可以完成图像归档和图像处理两方面功能需求：(1)图像归档：对图像进行批处理、 生成图像预览、 图像格式转换等 (2)图像处理：图像基本处理、 像素处理、 颜色处理等 Image类解析图像的创建在PIL中， 任何一个图像文件都可以用Ima">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2022/05/08/O1qq6f.jpg">
+<meta property="article:published_time" content="2022-05-24T06:47:21.000Z">
+<meta property="article:modified_time" content="2022-05-26T06:37:46.733Z">
+<meta property="article:author" content="css_0k">
+<meta property="article:tag" content="图像处理 python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2022/05/08/O1qq6f.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://css0k.github.io/2022/05/24/PIL%E5%BA%93/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'PIL库',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-05-26 14:37:46'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s1.ax1x.com/2022/05/07/OlMpE4.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s1.ax1x.com/2022/05/08/O1qq6f.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">css_0k的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">PIL库</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-05-24T06:47:21.000Z" title="Created 2022-05-24 14:47:21">2022-05-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-05-26T06:37:46.733Z" title="Updated 2022-05-26 14:37:46">2022-05-26</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="PIL库"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="PIL库概述"><a href="#PIL库概述" class="headerlink" title="PIL库概述"></a>PIL库概述</h2><p>PIL库支持图像存储、 显示和处理， 它能够处理几乎所有图片格式， 可以完成<br>对图像的缩放、 剪裁、 叠加以及向图像添加线条、 图像和文字等操作</p>
+<p>PIL库可以完成图像归档和图像处理两方面功能需求：<br>(1)图像归档：对图像进行批处理、 生成图像预览、 图像格式转换等</p>
+<p>(2)图像处理：图像基本处理、 像素处理、 颜色处理等</p>
+<h2 id="Image类解析"><a href="#Image类解析" class="headerlink" title="Image类解析"></a>Image类解析</h2><h3 id="图像的创建"><a href="#图像的创建" class="headerlink" title="图像的创建"></a>图像的创建</h3><p>在PIL中， 任何一个图像文件都可以用Image对象表示Image类的图像读取和创建方法</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Image.open(filename)</td>
+<td align="center">根据参数加载图像文件</td>
+</tr>
+<tr>
+<td align="center">Image.new(mode, size, color)</td>
+<td align="center">根据给定参数创建一个新的图像</td>
+</tr>
+<tr>
+<td align="center">Image.open(StringIO.StringIO(buffer))</td>
+<td align="center">从字符串中获取图像</td>
+</tr>
+<tr>
+<td align="center">Image.frombytes(mode, size, data)</td>
+<td align="center">根据像素点data创建图像</td>
+</tr>
+<tr>
+<td align="center">Image.verify()</td>
+<td align="center">对图像文件完整性进行检查， 返回异常</td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line">im = Image.<span class="built_in">open</span>(<span class="string">r&quot;E:\Pycharm\Project\pictures\2049675.jpg&quot;</span>)</span><br><span class="line">im.show() // 显示</span><br></pre></td></tr></table></figure>
+
+<h3 id="图像的属性"><a href="#图像的属性" class="headerlink" title="图像的属性"></a>图像的属性</h3><table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Image.format</td>
+<td align="center">标识图像格式或来源， 如果图像不是从文件读取， 值是None</td>
+</tr>
+<tr>
+<td align="center">Image.mode</td>
+<td align="center">图像的色彩模式， “L”灰度图像、 “RGB”真彩色图像、 “CMYK”出版图像</td>
+</tr>
+<tr>
+<td align="center">Image.size</td>
+<td align="center">图像宽度和高度， 单位是像素（px） ， 返回值是二元元组（tuple）</td>
+</tr>
+<tr>
+<td align="center">Image.palette</td>
+<td align="center">调色板属性， 返回一个ImagePalette类型</td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line">im = Image.<span class="built_in">open</span>(<span class="string">r&quot;E:\Pycharm\Project\pictures\2049675.jpg&quot;</span>)</span><br><span class="line">im.show()</span><br><span class="line"><span class="built_in">print</span>(im.<span class="built_in">format</span>,im.size)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line"><span class="comment"># JPEG (1920, 1080)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="图像的转换"><a href="#图像的转换" class="headerlink" title="图像的转换"></a>图像的转换</h3><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Image.save(filename, format)</td>
+<td align="center">将图像保存为filename文件名， format是图片格式</td>
+</tr>
+<tr>
+<td align="center">Image.convert(mode)</td>
+<td align="center">使用不同的参数， 转换图像为新的模式</td>
+</tr>
+<tr>
+<td align="center">Image.thumbnail(size)</td>
+<td align="center">创建图像的缩略图， size是缩略图尺寸的二元元组</td>
+</tr>
+</tbody></table>
+<p>jpg转换为png</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line">im = Image.<span class="built_in">open</span>(<span class="string">r&quot;E:\Pycharm\Project\pictures\2049675.jpg&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(im)</span><br><span class="line">im.save(<span class="string">r&quot;E:\Pycharm\Project\pictures\2049675changed.png&quot;</span>)</span><br><span class="line">im = Image.<span class="built_in">open</span>(<span class="string">r&quot;E:\Pycharm\Project\pictures\2049675changed.png&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(im)</span><br><span class="line">im.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">&lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=1920x1080 at <span class="number">0x1A8DE865F40</span>&gt;</span><br><span class="line">&lt;PIL.PngImagePlugin.PngImageFile image mode=RGB size=1920x1080 at <span class="number">0x1A8DE8D2E80</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>GIF文件图像提取。<br>对一个GIF格式动态文件， 提取其中各帧图像， 并保存为文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line">im = Image.<span class="built_in">open</span>(<span class="string">r&quot;E:\Pycharm\Project\pictures\21.gif&quot;</span>) <span class="comment"># 读入一个GIF文件</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    im.save(<span class="string">&#x27;picframe&#123;:02d&#125;.png&#x27;</span>.<span class="built_in">format</span>(im.tell()))</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        im.seek(im.tell()+<span class="number">1</span>)  <span class="comment"># 帧的位置</span></span><br><span class="line">        im.save(<span class="string">&#x27;picframe&#123;:02d&#125;.png&#x27;</span>.<span class="built_in">format</span>(im.tell()))</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;处理结束&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>seek简介：用于移动文件读取指针到文件指定的位置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">file. seek(offset[, whence])</span><br><span class="line"></span><br><span class="line">whence：0,1,2三个参数，0表示文件开头，1表示当前位置，2表示文件结尾</span><br><span class="line"></span><br><span class="line">offset:偏移量，可正可负，正数表示向后移动offset位，负数表示向前移动offset位。</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<p><img src="https://img-blog.csdn.net/2018071523590799?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x3Z2t6bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></p>
+<p><img src="https://img-blog.csdn.net/20180716000454296?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x3Z2t6bA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></p>
+<h5 id="Image-tell-返回当前帧号"><a href="#Image-tell-返回当前帧号" class="headerlink" title="Image.tell()返回当前帧号"></a><strong><code>Image.tell()</code>返回当前帧号</strong></h5><h5 id="Image-seek-在此序列文件中寻找给定的帧。"><a href="#Image-seek-在此序列文件中寻找给定的帧。" class="headerlink" title="Image.seek()在此序列文件中寻找给定的帧。"></a><strong><code>Image.seek()</code>在此序列文件中寻找给定的帧。</strong></h5><p>如果在序列的末尾进行查找，则该方法将引发EOFError异常。打开序列文件后，库自动搜索第0帧。</p>
+<p>请注意，在当前版本的库中，大多数序列格式仅允许您搜索下一帧。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用法： Image.seek(frame)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>参数：</strong><br><strong>frame</strong>-帧号，从0开始。</p>
+<p>引发：EOFError-如果调用尝试在序列末尾之外寻找。</p>
+</blockquote>
+<h3 id="图像处理"><a href="#图像处理" class="headerlink" title="图像处理"></a>图像处理</h3><p>Image类能够对每个像素点或者一幅RGB图像的每个通道单独进行操作,split()方法能够将RGB图像各颜色通道提取出来， merge()方法能够将各独立通道再合成一幅新的图像。</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Image.point(func)</td>
+<td align="center">根据函数func功能对每个元素进行运算， 返回图像副本</td>
+</tr>
+<tr>
+<td align="center">Image.split()</td>
+<td align="center">提取RGB图像的每个颜色通道， 返回图像副本</td>
+</tr>
+<tr>
+<td align="center">Image.merge(mode， bands)</td>
+<td align="center">合并通道 ， 采用mode色彩， bands是新色的色彩通道</td>
+</tr>
+<tr>
+<td align="center">Image.blend(im1,im2,alpha)</td>
+<td align="center">将两幅图片im1和im2按照如下公式插值后生成新的图像：im1 * (1.0-alpha) + im2 * alpha</td>
+</tr>
+</tbody></table>
+<p>im.getpixel((4,4))        ——获取某个像素位置的值</p>
+<p>img.putpixel((4,4),(255,0,0))            ——写某个像素位置的值</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://css0k.github.io">css_0k</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://css0k.github.io/2022/05/24/PIL%E5%BA%93/">https://css0k.github.io/2022/05/24/PIL%E5%BA%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-python/">图像处理 python</a></div><div class="post_share"><div class="social-share" data-image="https://s1.ax1x.com/2022/05/08/O1qq6f.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/05/26/PNG/"><img class="prev-cover" src="https://s1.ax1x.com/2022/05/08/O1qq6f.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">PNG透析</div></div></a></div><div class="next-post pull-right"><a href="/2022/05/22/DASCTF%E4%BA%94%E6%9C%88%E8%B5%9B/"><img class="next-cover" src="https://files.buuoj.cn/files/cbbda8ccb4a0f64890aa23fc3d7a3124/png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">DASCTF五月赛</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s1.ax1x.com/2022/05/07/OlMpE4.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">css_0k</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/css0k/css0k.github.io" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1327246897@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PIL%E5%BA%93%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">PIL库概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Image%E7%B1%BB%E8%A7%A3%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">Image类解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">2.1.</span> <span class="toc-text">图像的创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">2.2.</span> <span class="toc-text">图像的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.3.</span> <span class="toc-text">图像的转换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Image-tell-%E8%BF%94%E5%9B%9E%E5%BD%93%E5%89%8D%E5%B8%A7%E5%8F%B7"><span class="toc-number">2.3.0.1.</span> <span class="toc-text">Image.tell()返回当前帧号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Image-seek-%E5%9C%A8%E6%AD%A4%E5%BA%8F%E5%88%97%E6%96%87%E4%BB%B6%E4%B8%AD%E5%AF%BB%E6%89%BE%E7%BB%99%E5%AE%9A%E7%9A%84%E5%B8%A7%E3%80%82"><span class="toc-number">2.3.0.2.</span> <span class="toc-text">Image.seek()在此序列文件中寻找给定的帧。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86"><span class="toc-number">2.4.</span> <span class="toc-text">图像处理</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/09/13/xss%E8%AF%A6%E8%A7%A3/" title="xss详解"><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/b670c49b5cab44e1832e18eef0dc8607.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="xss详解"/></a><div class="content"><a class="title" href="/2022/09/13/xss%E8%AF%A6%E8%A7%A3/" title="xss详解">xss详解</a><time datetime="2022-09-13T05:30:17.000Z" title="Created 2022-09-13 13:30:17">2022-09-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/07/sqlmap%E5%AD%A6%E4%B9%A0/" title="sqlmap学习"><img src="https://s1.ax1x.com/2022/05/08/O1qq6f.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="sqlmap学习"/></a><div class="content"><a class="title" href="/2022/09/07/sqlmap%E5%AD%A6%E4%B9%A0/" title="sqlmap学习">sqlmap学习</a><time datetime="2022-09-07T10:05:52.000Z" title="Created 2022-09-07 18:05:52">2022-09-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/05/buuctf/" title="buuctf"><img src="https://s1.ax1x.com/2022/05/08/O1qq6f.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="buuctf"/></a><div class="content"><a class="title" href="/2022/09/05/buuctf/" title="buuctf">buuctf</a><time datetime="2022-09-05T14:11:36.000Z" title="Created 2022-09-05 22:11:36">2022-09-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/31/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="PHP反序列化"><img src="https://s1.ax1x.com/2022/05/08/O1qq6f.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PHP反序列化"/></a><div class="content"><a class="title" href="/2022/08/31/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="PHP反序列化">PHP反序列化</a><time datetime="2022-08-31T12:12:44.000Z" title="Created 2022-08-31 20:12:44">2022-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/26/PNG/" title="PNG透析"><img src="https://s1.ax1x.com/2022/05/08/O1qq6f.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PNG透析"/></a><div class="content"><a class="title" href="/2022/05/26/PNG/" title="PNG透析">PNG透析</a><time datetime="2022-05-26T06:38:19.000Z" title="Created 2022-05-26 14:38:19">2022-05-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://s1.ax1x.com/2022/05/08/O1qq6f.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By css_0k</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
